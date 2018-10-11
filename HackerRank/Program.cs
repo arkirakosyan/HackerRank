@@ -11,6 +11,7 @@ using System.Runtime.Serialization;
 using System.Text.RegularExpressions;
 using System.Text;
 using System;
+using HackerRank.Problems;
 
 class Solution
 {
@@ -19,7 +20,7 @@ class Solution
 
     static void Main(string[] args)
     {
-        string[] nd = Console.ReadLine().Split(' ');
+        /*string[] nd = Console.ReadLine().Split(' ');
 
         int n = Convert.ToInt32(nd[0]);
 
@@ -40,6 +41,8 @@ class Solution
         for (int i = 0; i < n; i++)
         {
             Console.Write($"{b[i]} ");
-        }
+        }*/
+
+        ArrayManipulations.MainRun();
     }
 }
