@@ -5,6 +5,9 @@ using System;
 
 namespace HackerRank.Problems
 {
+    /// <summary>
+    /// Bigger is Greater
+    /// </summary>
     public static class BiggerIsGreater
     {
         public static void MainRun(String[] args)

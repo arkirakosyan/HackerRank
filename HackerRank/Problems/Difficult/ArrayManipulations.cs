@@ -6,6 +6,9 @@ using System;
 
 namespace HackerRank.Problems
 {
+    /// <summary>
+    /// Array Manipulation
+    /// </summary>
     public static class ArrayManipulations
     {
         public static void MainRun()
