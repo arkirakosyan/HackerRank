@@ -10,7 +10,7 @@ namespace HackerRank.Problems
     /// <summary>
     /// Fibonacci Modified
     /// </summary>
-    public class FibonacciModified
+    public class FibonacciModified : _ProblemBase
     {
         public static void MainRun(String[] args)
         {

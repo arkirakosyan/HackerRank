@@ -43,6 +43,6 @@ class Solution
             Console.Write($"{b[i]} ");
         }*/
 
-        ArrayManipulations.MainRun();
+        ClimbingLeaderBoard.MainRun();
     }
 }

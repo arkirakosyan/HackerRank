@@ -11,7 +11,7 @@ namespace HackerRank.Problems
     /// <summary>
     /// New Year Chaos
     /// </summary>
-    public static class NewYearChaos
+    public class NewYearChaos : _ProblemBase
     {
         public static void MainRun(String[] args)
         {
