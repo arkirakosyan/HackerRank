@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿//**************** Max Score *****************//
+//******************* 20 ********************//
+//*******************************************//
+using System;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HackerRank.Problems
 {
@@ -32,12 +32,12 @@ namespace HackerRank.Problems
 
             for (int i = 0; i < alice.Length; i++)
             {
-                while (alice[i] >= distinctScores[j] && j > 0)
+                while (j >= 0 && alice[i] >= distinctScores[j])
                 {
                     j--;
                 }
 
-                if (j == 0)
+                if (j < 0)
                 {
                     for (; i < alice.Length; i++)
                     {
