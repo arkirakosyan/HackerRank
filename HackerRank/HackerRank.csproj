@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Problems\Difficult\ArrayManipulations.cs" />
+    <Compile Include="Problems\Medium\BiggerIsGreater.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
