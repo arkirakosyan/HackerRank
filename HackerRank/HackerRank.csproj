@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="Problems\Difficult\ArrayManipulations.cs" />
     <Compile Include="Problems\Difficult\MatrixLayerRotation.cs" />
+    <Compile Include="Problems\Medium\ACMICPCTeam.cs" />
     <Compile Include="Problems\Medium\BiggerIsGreater.cs" />
     <Compile Include="Problems\Medium\ClimbingLeaderBoard.cs" />
     <Compile Include="Problems\Medium\FibonacciModified.cs" />

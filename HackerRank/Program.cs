@@ -12,6 +12,7 @@ using System.Text.RegularExpressions;
 using System.Text;
 using System;
 using HackerRank.Problems;
+using HackerRank.Problems.Medium;
 
 class Solution
 {
@@ -43,6 +44,6 @@ class Solution
             Console.Write($"{b[i]} ");
         }*/
 
-        ClimbingLeaderBoard.MainRun();
+        ACMICPCTeam.MainRun();
     }
 }
