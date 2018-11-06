@@ -12,6 +12,7 @@ using System.Text.RegularExpressions;
 using System.Text;
 using System;
 using HackerRank.Problems;
+using HackerRank.Problems.Medium;
 
 class Solution
 {

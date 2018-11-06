@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HackerRank.Problems
 {
-    public class _ProblemBase
+    public abstract class _ProblemBase
     {
         protected static void PrintHorizontal(int[] arr)
         {
