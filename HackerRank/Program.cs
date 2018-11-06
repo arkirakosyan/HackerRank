@@ -20,29 +20,6 @@ class Solution
 
     static void Main(string[] args)
     {
-        /*string[] nd = Console.ReadLine().Split(' ');
-
-        int n = Convert.ToInt32(nd[0]);
-
-        int d = Convert.ToInt32(nd[1]);
-
-        int[] a = Array.ConvertAll(Console.ReadLine().Split(' '), aTemp => Convert.ToInt32(aTemp))
-        ;
-
-        d = d % n;
-        int[] b = new int[n];
-
-        for (int i = 0; i < n; i++)
-        {
-            b[i] = a[(i + d) % n];
-        }
-
-
-        for (int i = 0; i < n; i++)
-        {
-            Console.Write($"{b[i]} ");
-        }*/
-
-        ClimbingLeaderBoard.MainRun();
+        QueensAttack.MainRun();
     }
 }
