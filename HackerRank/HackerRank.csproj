@@ -53,6 +53,7 @@
     <Compile Include="Problems\Medium\FibonacciModified.cs" />
     <Compile Include="Problems\Medium\NewYearChaos.cs" />
     <Compile Include="Problems\Medium\QueensAttack.cs" />
+    <Compile Include="Problems\Other\MyHashTable.cs" />
     <Compile Include="Problems\_ProblemBase.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

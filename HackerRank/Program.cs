@@ -20,6 +20,45 @@ class Solution
 
     static void Main(string[] args)
     {
-        QueensAttack.MainRun();
+        //QueensAttack.MainRun();
+        DateTime start = DateTime.Now;
+
+        MyHashTable myHash = new MyHashTable();
+
+        for (int i = 1; i <= 2000000; i++)
+        {
+            myHash["key" + i] = "value" + i;
+        }
+
+        for (int i = 1; i < 100; i++)
+        {
+            Random r = new Random();
+            int index = r.Next(200000);
+            Console.WriteLine(myHash["key" + index]);
+        }
+
+        Console.WriteLine("Time: {0}", (DateTime.Now - start).Milliseconds);
+        Console.ReadKey();
+
+
+
+
+        start = DateTime.Now;
+        Hashtable hash = new Hashtable();
+
+        for (int i = 1; i <= 2000000; i++)
+        {
+            hash["key" + i] = "value" + i;
+        }
+
+        for (int i = 1; i < 100; i++)
+        {
+            Random r = new Random();
+            int index = r.Next(200000);
+            Console.WriteLine(hash["key" + index]);
+        }
+
+        Console.WriteLine("Time: {0}", (DateTime.Now - start).Milliseconds);
+        Console.ReadKey();
     }
 }
