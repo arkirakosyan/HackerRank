@@ -8,7 +8,7 @@ namespace HackerRank.Problems
 {
     public abstract class _ProblemBase
     {
-        protected static void PrintHorizontal(int[] arr)
+        protected static void PrintArrHorizontal(int[] arr)
         {
             for (int i = 0; i < arr.Length; i++)
             {
@@ -17,7 +17,7 @@ namespace HackerRank.Problems
 
             Console.WriteLine();
         }
-        protected static void PrintVertical(int[] arr)
+        protected static void PrintArrVertical(int[] arr)
         {
             for (int i = 0; i < arr.Length; i++)
             {
@@ -27,7 +27,7 @@ namespace HackerRank.Problems
             Console.WriteLine();
         }
 
-        protected static void PrintHorizontal(object[] arr)
+        protected static void PrintArrHorizontal(object[] arr)
         {
             for (int i = 0; i < arr.Length; i++)
             {
@@ -37,7 +37,7 @@ namespace HackerRank.Problems
             Console.WriteLine();
         }
 
-        protected static void PrintVertical<T>(IEnumerable<T> arr)
+        protected static void PrintArrVertical<T>(IEnumerable<T> arr)
         {
             foreach (var t in arr)
             {
@@ -46,12 +46,16 @@ namespace HackerRank.Problems
             Console.WriteLine();
         }
 
-        protected static void PrintHorizontal<T>(IEnumerable<T> arr)
+        protected static void PrintArrHorizontal<T>(IEnumerable<T> arr)
         {
             foreach (var t in arr)
             {
                 Console.WriteLine($"{t} ");
             }
+        }
+        protected static void Print<T>(T t)
+        {
+            Console.WriteLine($"{t}");
         }
     }
 }

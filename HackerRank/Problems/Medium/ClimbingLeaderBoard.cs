@@ -20,7 +20,7 @@ namespace HackerRank.Problems
             ;
             int[] result = climbingLeaderboard(scores, alice);
 
-            PrintHorizontal<int>(result);
+            PrintArrHorizontal<int>(result);
         }
 
         private static int[] climbingLeaderboard(int[] scores, int[] alice)

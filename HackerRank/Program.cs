@@ -21,6 +21,9 @@ class Solution
 
     static void Main(string[] args)
     {
-        //QueensAttack.MainRun();
+        //CustomMultiplication.MainRun();
+
+        //MyHashTableTest.Test();
+        Scopes.MainRun();
     }
 }

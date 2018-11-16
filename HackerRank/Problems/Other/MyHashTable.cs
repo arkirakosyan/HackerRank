@@ -12,29 +12,29 @@ namespace HackerRank.Problems
         public static void Test()
         {
             DateTime start = DateTime.Now;
-            //Hashtable hash = new Hashtable();
+            Hashtable hash = new Hashtable();
 
 
-            //for (int i = 1; i <= 2000000; i++)
-            //{
-            //    hash["key" + i] = "value" + i;
-            //}
+            for (int i = 1; i <= 2000000; i++)
+            {
+                hash["key" + i] = "value" + i;
+            }
 
-            //for (int i = 1; i < 100000; i++)
-            //{
-            //    Random r = new Random();
-            //    int index = r.Next(200000);
-            //    object s = hash["key" + index];
-            //}
+            for (int i = 1; i < 100000; i++)
+            {
+                Random r = new Random();
+                int index = r.Next(200000);
+                object s = hash["key" + index];
+            }
 
-            //Console.WriteLine("Hashtable Time: {0}", (DateTime.Now - start).TotalSeconds);
+            Console.WriteLine("Hashtable Time: {0}", (DateTime.Now - start).TotalSeconds);
 
             /****************************************************************************************************/
             start = DateTime.Now;
             Dictionary<string, string> dictionary = new Dictionary<string, string>();
 
 
-            for (int i = 1; i <= 10000000; i++)
+            for (int i = 1; i <= 2000000; i++)
             {
                 dictionary["key" + i] = "value" + i;
             }
@@ -42,48 +42,48 @@ namespace HackerRank.Problems
             for (int i = 1; i < 100000; i++)
             {
                 Random r = new Random();
-                int index = r.Next(1000000);
+                int index = r.Next(2000000);
                 string s = dictionary["key" + index];
             }
 
             Console.WriteLine("Dictionary Time: {0}", (DateTime.Now - start).TotalSeconds);
 
 
-            /****************************************************************************************************/
+            /***********************************************MyHashTable<int>*****************************************************/
             start = DateTime.Now;
 
-            MyHashTable<string> myHashG = new MyHashTable<string>();
+            MyHashTable<int> myHashG = new MyHashTable<int>();
 
-            for (int i = 1; i <= 10000000; i++)
+            for (int i = 1; i <= 2000000; i++)
             {
-                myHashG["key" + i] = "value" + i;
+                myHashG["key" + i] = i;
             }
 
             for (int i = 1; i < 100000; i++)
             {
                 Random r = new Random();
-                int index = r.Next(1000000);
-                object s = myHashG["key" + index];
+                int index = r.Next(2000000);
+                int s = myHashG["key" + index];
             }
 
             Console.WriteLine("MyHashTable generic Time: {0}", (DateTime.Now - start).TotalSeconds);
 
 
-            /****************************************************************************************************/
+            /*********************************************MyHashTable*******************************************************/
             start = DateTime.Now;
 
             MyHashTable myHash = new MyHashTable();
 
-            for (int i = 1; i <= 10000000; i++)
+            for (int i = 1; i <= 2000000; i++)
             {
-                myHash["key" + i] = "value" + i;
+                myHash["key" + i] = i;
             }
 
             for (int i = 1; i < 100000; i++)
             {
                 Random r = new Random();
-                int index = r.Next(200000);
-                object s = myHash["key" + index];
+                int index = r.Next(2000000);
+                int s = (int)myHash["key" + index];
             }
 
             Console.WriteLine("MyHashTable Time: {0}", (DateTime.Now - start).TotalSeconds);

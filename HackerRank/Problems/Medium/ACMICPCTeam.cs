@@ -27,7 +27,7 @@ namespace HackerRank.Problems.Medium
 
             int[] result = acmTeam(topic);
 
-            PrintVertical(result);
+            PrintArrVertical(result);
         }
 
         static int[] acmTeam(string[] topic)
