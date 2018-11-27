@@ -13,6 +13,7 @@ using System.Text;
 using System;
 using HackerRank.Problems;
 using HackerRank.Problems.Medium;
+using HackerRank.Problems.Other;
 
 class Solution
 {
@@ -24,6 +25,7 @@ class Solution
         //CustomMultiplication.MainRun();
 
         //MyHashTableTest.Test();
-        Scopes.MainRun();
+        //Scopes.MainRun();
+        MyBalancedTree<int>.Test();
     }
 }
