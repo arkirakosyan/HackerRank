@@ -41,17 +41,17 @@ namespace HackerRank.Problems
         {
             foreach (var t in arr)
             {
-                Console.Write($"{t} ");
+                Console.WriteLine($"{t} ");
             }
-            Console.WriteLine();
         }
 
         protected static void PrintArrHorizontal<T>(IEnumerable<T> arr)
         {
             foreach (var t in arr)
             {
-                Console.WriteLine($"{t} ");
+                Console.Write($"{t} ");
             }
+            Console.WriteLine();
         }
         protected static void Print<T>(T t)
         {

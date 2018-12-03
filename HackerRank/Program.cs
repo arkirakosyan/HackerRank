@@ -19,7 +19,6 @@ class Solution
 {
     static void Main(string[] args)
     {
-        SlowSearch.MainRun();
-        //Scopes.MainRun();
+        new StringSearchTest().MainRun();
     }
 }
