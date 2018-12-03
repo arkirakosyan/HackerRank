@@ -13,17 +13,13 @@ using System.Text;
 using System;
 using HackerRank.Problems;
 using HackerRank.Problems.Medium;
+using HackerRank.Problems.Other;
 
 class Solution
 {
-
-
-
     static void Main(string[] args)
     {
-        //CustomMultiplication.MainRun();
-
-        //MyHashTableTest.Test();
-        Scopes.MainRun();
+        SlowSearch.MainRun();
+        //Scopes.MainRun();
     }
 }
