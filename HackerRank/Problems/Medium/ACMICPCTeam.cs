@@ -8,8 +8,7 @@ namespace HackerRank.Problems.Medium
 {
     public class ACMICPCTeam : _ProblemBase
     {
-
-        public static void MainRun()
+        public override void MainRun()
         {
             string[] nm = Console.ReadLine().Split(' ');
 
@@ -69,5 +68,6 @@ namespace HackerRank.Problems.Medium
             return maxCount;
         }
 
+       
     }
 }

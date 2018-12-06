@@ -13,7 +13,7 @@ namespace HackerRank.Problems
     /// </summary>
     public class NewYearChaos : _ProblemBase
     {
-        public static void MainRun(String[] args)
+        public override void MainRun()
         {
             int T = Convert.ToInt32(Console.ReadLine());
             List<string> bribesCount = new List<string>();
@@ -34,12 +34,12 @@ namespace HackerRank.Problems
 
         }
 
-        private static bool IsQueueValid(int[] queue)
+        private bool IsQueueValid(int[] queue)
         {
             return !queue.Where((t, i) => t - i > 3).Any();
         }
 
-        private static bool IsQueueStaibized(int[] queue)
+        private bool IsQueueStaibized(int[] queue)
         {
             bool stabile = true;
             for (int i = 0; i < queue.Length; i++)
@@ -53,7 +53,7 @@ namespace HackerRank.Problems
             return stabile;
         }
 
-        private static string BribesCount(int[] queue)
+        private string BribesCount(int[] queue)
         {
             if (!IsQueueValid(queue))
                 return "Too chaotic";

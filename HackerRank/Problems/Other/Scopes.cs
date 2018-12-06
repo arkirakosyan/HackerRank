@@ -8,11 +8,11 @@ namespace HackerRank.Problems
 {
     public class Scopes : _ProblemBase
     {
-        public static void MainRun()
+        public override void MainRun()
         {
             GenerateParens(4);
         }
-        private static void AddParen(List<string> list, int leftRem, int rightRem, char[] str, int index)
+        private void AddParen(List<string> list, int leftRem, int rightRem, char[] str, int index)
         {
             if (leftRem < 0 || rightRem < leftRem) return;
 
@@ -28,7 +28,7 @@ namespace HackerRank.Problems
             }
         }
 
-        private static List<string> GenerateParens(int count)
+        private List<string> GenerateParens(int count)
         {
             char[] str = new char[count * 2];
             List<string> list = new List<string>();

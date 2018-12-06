@@ -8,16 +8,12 @@ namespace HackerRank.Problems.Other
 {
     public class StringSearchTest : _ProblemBase
     {
-        public void MainRun()
+        public override void MainRun()
         {
             //string text = Console.ReadLine();
             //string pattern = Console.ReadLine();
             string text = "abcbcglxbcgl";
             string pattern = "bcgl";
-
-
-
-
 
             text = "ababbabbbabbbb";
             pattern = "bbb";

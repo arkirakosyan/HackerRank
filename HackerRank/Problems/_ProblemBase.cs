@@ -8,6 +8,8 @@ namespace HackerRank.Problems
 {
     public abstract class _ProblemBase
     {
+        public abstract void MainRun();
+
         protected static void PrintArrHorizontal(int[] arr)
         {
             for (int i = 0; i < arr.Length; i++)

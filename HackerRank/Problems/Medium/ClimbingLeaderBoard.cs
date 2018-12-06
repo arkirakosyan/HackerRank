@@ -8,7 +8,7 @@ namespace HackerRank.Problems
 {
     public class ClimbingLeaderBoard : _ProblemBase
     {
-        public static void MainRun()
+        public override void MainRun()
         {
             int scoresCount = Convert.ToInt32(Console.ReadLine());
 
@@ -23,7 +23,7 @@ namespace HackerRank.Problems
             PrintArrHorizontal<int>(result);
         }
 
-        private static int[] climbingLeaderboard(int[] scores, int[] alice)
+        private int[] climbingLeaderboard(int[] scores, int[] alice)
         {
             int[] aliceRanks = new int[alice.Length];
             int[] distinctScores = scores.Distinct().ToArray();

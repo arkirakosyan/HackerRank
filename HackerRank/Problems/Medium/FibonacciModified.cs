@@ -12,7 +12,7 @@ namespace HackerRank.Problems
     /// </summary>
     public class FibonacciModified : _ProblemBase
     {
-        public static void MainRun(String[] args)
+        public override void MainRun()
         {
             /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution */
             string[] ttt = Console.ReadLine().Split(' ');
@@ -26,7 +26,7 @@ namespace HackerRank.Problems
 
         private static int t1, t2, n;
 
-        private static BigInteger CustomFibonachi(int i)
+        private  BigInteger CustomFibonachi(int i)
         {
             if (i == 1) return t1;
             if (i == 2) return t2;

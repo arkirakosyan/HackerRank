@@ -8,11 +8,11 @@ namespace HackerRank.Problems
 {
     public class CustomMultiplication : _ProblemBase
     {
-        public static void MainRun()
+        public override void MainRun()
         {
             Multiple(708954, 32408);
         }
-        public static int Multiple(int a, int b)
+        public int Multiple(int a, int b)
         {
             if (a > b)
             {
@@ -32,7 +32,7 @@ namespace HackerRank.Problems
             }
             return sum;
         }
-        private static int MultipleProcess(int a, int b)
+        private int MultipleProcess(int a, int b)
         {
             Console.WriteLine($"a = {a}, b = {b}");
 

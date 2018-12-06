@@ -8,7 +8,7 @@ namespace HackerRank.Problems
 {
     public class QueensAttack : _ProblemBase
     {
-        public static void MainRun()
+        public override void MainRun()
         {
             string[] nk = Console.ReadLine().Split(' ');
 
@@ -33,7 +33,7 @@ namespace HackerRank.Problems
             Console.WriteLine(result);
         }
 
-        private static int queensAttack(int n, int k, int r_q, int c_q, int[][] obstacles)
+        private int queensAttack(int n, int k, int r_q, int c_q, int[][] obstacles)
         {
             int lu = Math.Min(r_q - 1, n - c_q);
             int cu = n - c_q;
