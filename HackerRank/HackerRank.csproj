@@ -46,9 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Problems\Arrays\MergeSort.cs" />
+    <Compile Include="Problems\Arrays\QuickSort.cs" />
     <Compile Include="Problems\Difficult\ArrayManipulations.cs" />
     <Compile Include="Problems\Difficult\MatrixLayerRotation.cs" />
     <Compile Include="Problems\LeetCode\AddTwoNumbers.cs" />
+    <Compile Include="Problems\Arrays\MergeSortedArrays.cs" />
     <Compile Include="Problems\Medium\ACMICPCTeam.cs" />
     <Compile Include="Problems\Medium\BiggerIsGreater.cs" />
     <Compile Include="Problems\Medium\ClimbingLeaderBoard.cs" />
@@ -57,6 +60,7 @@
     <Compile Include="Problems\Medium\QueensAttack.cs" />
     <Compile Include="Problems\Other\CustomMultiplication.cs" />
     <Compile Include="Problems\Other\MyBalancedTree.cs" />
+    <Compile Include="Problems\Other\MyGraph.cs" />
     <Compile Include="Problems\Other\MyHashTable.cs" />
     <Compile Include="Problems\Other\Scopes.cs" />
     <Compile Include="Problems\Other\StringSearch.cs" />

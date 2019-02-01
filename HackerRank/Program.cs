@@ -15,12 +15,14 @@ using HackerRank.Problems;
 using HackerRank.Problems.Medium;
 using HackerRank.Problems.Other;
 using HackerRank.Problems.LeetCode;
+using HackerRank.Problems.Arrays;
+
 
 class Solution
 {
     static void Main(string[] args)
     {
 
-        new AddTwoNumbersProblem().MainRun();
+        new MyGraphManager().MainRun();
     }
 }
