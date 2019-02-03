@@ -49,6 +49,9 @@
     <Compile Include="Problems\Difficult\ArrayManipulations.cs" />
     <Compile Include="Problems\Difficult\MatrixLayerRotation.cs" />
     <Compile Include="Problems\LeetCode\AddTwoNumbers.cs" />
+    <Compile Include="Problems\LeetCode\LongestPolindrom.cs" />
+    <Compile Include="Problems\LeetCode\LongestSubstring.cs" />
+    <Compile Include="Problems\LeetCode\MedianOfTwoSortedArrays.cs" />
     <Compile Include="Problems\Medium\ACMICPCTeam.cs" />
     <Compile Include="Problems\Medium\BiggerIsGreater.cs" />
     <Compile Include="Problems\Medium\ClimbingLeaderBoard.cs" />
