@@ -25,10 +25,10 @@ namespace HackerRank.Problems
 
             if (sum == a * b)
             {
-                Print("");
-                Print(sum);
-                Print("");
-                Print("CONGRATULATIONS!!!!!!");
+                PrintLine("");
+                PrintLine(sum);
+                PrintLine("");
+                PrintLine("CONGRATULATIONS!!!!!!");
             }
             return sum;
         }
