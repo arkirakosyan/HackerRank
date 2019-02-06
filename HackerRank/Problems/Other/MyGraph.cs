@@ -94,6 +94,39 @@ namespace HackerRank.Problems.Other
                     dfs(child, end, start, depth + 1);
             }
         }
+
+        public void BFS(int start, int end)
+        {
+            Node startNode = Nodes.Values.Where(x => x.Value == start).FirstOrDefault();
+            startNode.Visited = true;
+
+            Queue<Node> queue = new Queue<Node>(startNode.Adjacency);
+
+            int depth = 1;
+            while (queue.Any())
+            {
+                Node node = queue.Dequeue();
+                if(!node.Visited)
+                {
+                    node.Visited = true;
+
+                    Console.WriteLine($"{node.Value} node is in {depth} far from {start}");
+
+                    if (node.Value == end)
+                    {
+                        Console.WriteLine($"{end} is found in {depth} far from {start}");
+                    }
+
+                    foreach (var item in node.Adjacency.Where(x => !x.Visited))
+                    {
+                        queue.Enqueue(item);
+                    }
+                }
+                
+            }
+        }
+
+      
     }
 
     public class Node

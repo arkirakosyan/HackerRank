@@ -11,33 +11,33 @@ namespace HackerRank.Problems.LeetCode
 
 
 
-       
 
-     void BinaryIncrement()
-    {
-        for (int i = n - 1; i >= 0; i--)
+
+        void BinaryIncrement()
         {
-            if (binary[i] == 0)
+            for (int i = n - 1; i >= 0; i--)
             {
-                binary[i] = 1;
-                return;
+                if (binary[i] == 0)
+                {
+                    binary[i] = 1;
+                    return;
+                }
+                binary[i] = 0;
             }
-            binary[i] = 0;
         }
-    }
 
-    void Printsubset()
-    {
+        void Printsubset()
+        {
             List<int> subset = new List<int>();
 
-        for (int i = n - 1; i >= 0; i--)
-        {
-            if (binary[i] == 1) subset.Add(set[n - 1 - i]);
-        }
+            for (int i = n - 1; i >= 0; i--)
+            {
+                if (binary[i] == 1) subset.Add(set[n - 1 - i]);
+            }
 
-        Console.WriteLine("");
-        Console.Write(String.Join(",", subset));
-    }
+            Console.WriteLine("");
+            Console.Write(String.Join(",", subset));
+        }
 
 
 
@@ -45,9 +45,11 @@ namespace HackerRank.Problems.LeetCode
         public byte[] binary;
         public int n;
 
-    public override void MainRun()
+        public override void MainRun()
         {
-            Test(5, 3, 0);
+            GetAllSubsetsOfK(5, 3);
+            Console.ReadKey();
+            return;
             string input = Console.ReadLine();
 
             set = Array.ConvertAll(input.Split(' '), x => Convert.ToInt32(x));
@@ -118,7 +120,7 @@ namespace HackerRank.Problems.LeetCode
         {
             int[] indeces = new int[extraLimit];
             List<int[]> indecesList = new List<int[]>();
-           
+
             for (int i = 0; i < list.Count - extraLimit; i++)
             {
                 //indeces[0] = list[i];
@@ -137,75 +139,89 @@ namespace HackerRank.Problems.LeetCode
             return indecesList;
         }
 
-        public void Test(int n, int k, int u)
+        public List<byte[]> GetAllSubsetsOfK(int n, int k)
         {
-            if (u >= n - k) return;
+            List<byte[]> newXList = new List<byte[]>();
 
-            int[] x = new int[n];
-
-            for (int i = u; i < k + u; i++)
+            if (n <= k)
             {
-                x[i] = 1;
+                var x = new byte[n];
+                for (int i = 0; i < k; i++)
+                    x[i] = 1;
+
+                newXList.Add(x);
+                return newXList;
             }
 
-            int t = k;
+            var prevXList = GetAllSubsetsOfK(n - 1, k);
 
-            PrintArrHorizontal(x);
+            Dictionary<string, byte[]> newXListLong = new Dictionary<string, byte[]>();
 
-            int found = 0;
-            while (t > 0)
+            foreach (var prevX in prevXList)
             {
-                for (int i = u; i < n; i++)
+                //PrintLine($"Prev: {string.Join(", ", prevX)}");
+
+                int oneFound = 0;
+                for (int i = 0; i < n - 1; i++)
                 {
-                    if (x[i] == 1) found++;
-                    if (found == t && i < n -1 && x[i + 1] == 0)
+                    if (prevX[i] == 1)
                     {
-                        x[i] = 0;
-                        x[i + 1] = 1;
-                        PrintArrHorizontal(x);
-                        found--;
+                        oneFound++;
+
+                        byte[] newX = CopyArrayExtendted(prevX, i);
+
+                        string xNewLong = BitConverter.ToString(newX, 0);
+
+                        if (!newXListLong.ContainsKey(xNewLong))
+                        {
+                            newXListLong.Add(xNewLong, newX);
+                            newXList.Add(newX);
+                            //if(n== N)
+                                PrintArrHorizontal(newX);
+                        }
+
+                        if (oneFound == k)
+                        {
+                            newX = CopyArrayExtendted(prevX, prevX.Length);
+                            xNewLong = BitConverter.ToString(newX, 0);
+
+                            if (!newXListLong.ContainsKey(xNewLong))
+                            {
+                                newXListLong.Add(xNewLong, newX);
+                                newXList.Add(newX);
+                            //if(n== N)
+                                    PrintArrHorizontal(newX);
+                            }
+                        }
                     }
                 }
-                t--;
-                found = 0;
-
             }
-            Test(n, k, ++u);
-
+            return newXList;
         }
 
-        private void MyPrint(int[] a, int k)
+        public byte[] CopyArrayExtendted(byte[] arr, int index)
         {
-            while (k > 0)
+            byte[] newArr = new byte[arr.Length + 1];
+
+            int oneAdded = 0;
+            for (int j = 0; j <= arr.Length; j++)
             {
-                Print(k--);
-            }
-
-            PrintArrHorizontal(a);
-        }
-
-        public void Test1(int n, int k, int u)
-        {
-            if (u >= n - k) return;
-
-            int[] x = new int[n - k - 1];
-
-            x[0] = 0;
-
-            MyPrint(x, k);
-           
-            for (int i = 0; i < x.Length - 1; i++)
-            {
-                if (x[i] == 1)
+                if (j == index)
                 {
-                    x[i] = 0;
-                    x[i + 1] = 1;
-                    MyPrint(x, k);
+                    newArr[j] = 0;
+                    if (++j > arr.Length)
+                        break;
+                    newArr[j] = arr[j - 1];
+                    oneAdded++;
+                }
+                else
+                {
+                    newArr[j] = arr[j - oneAdded];
                 }
             }
-            Test(n, k, ++u);
-        }
 
+            return newArr;
+        }
 
         public string GetItem(int setLength, int[] list, int startIndex)
         {
