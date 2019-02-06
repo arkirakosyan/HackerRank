@@ -28,11 +28,11 @@ namespace HackerRank.Problems.Arrays
             int[] arr = testList.Distinct().ToArray();
             int[] arr1 = testList.Distinct().ToArray();
 
-            Print($"Array length: {arr.Length}");
+            PrintLine($"Array length: {arr.Length}");
             DateTime start = DateTime.Now;
             List<int> ss = arr.ToList();
             ss.Sort();
-            Print("C# sort: " + (DateTime.Now - start).TotalSeconds);
+            PrintLine("C# sort: " + (DateTime.Now - start).TotalSeconds);
 
 
 
@@ -40,11 +40,11 @@ namespace HackerRank.Problems.Arrays
             start = DateTime.Now;
             Sort(ref arr);
             BubbleSort(ref arr);
-            Print($"QuickSort: " +(DateTime.Now - start).TotalSeconds);
+            PrintLine($"QuickSort: " +(DateTime.Now - start).TotalSeconds);
 
             start = DateTime.Now;
             BubbleSort(ref arr1);
-            Print("Bubble sort: " + (DateTime.Now - start).TotalSeconds);
+            PrintLine("Bubble sort: " + (DateTime.Now - start).TotalSeconds);
 
 
             //for (int i = 0; i < ss.Count(); i++)

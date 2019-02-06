@@ -55,9 +55,14 @@ namespace HackerRank.Problems
             }
             Console.WriteLine();
         }
-        protected static void Print<T>(T t)
+        protected static void PrintLine<T>(T t)
         {
             Console.WriteLine($"{t}");
+        }
+
+        protected static void Print<T>(T t)
+        {
+            Console.Write($"{t} ");
         }
     }
 }

@@ -68,7 +68,7 @@ namespace HackerRank.Problems.Other
                 }
             }
 
-            Print("Slow search:" + c);
+            PrintLine("Slow search:" + c);
             return matchIndeces;
         }
 
@@ -107,7 +107,7 @@ namespace HackerRank.Problems.Other
                     j--;
                 }
             }
-            Print("KMP temp: " + c);
+            PrintLine("KMP temp: " + c);
             return matchIndeces;
         }
 
@@ -150,7 +150,7 @@ namespace HackerRank.Problems.Other
                 i++;
             }
 
-            Print("KMP : " + c);
+            PrintLine("KMP : " + c);
 
             return tempArr;
         }
