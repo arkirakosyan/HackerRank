@@ -24,18 +24,7 @@ class Solution
     {
         int[,] a = new int[5,6];
 
-        Console.WriteLine(a.Length);
-        Console.WriteLine(6 % 5);
-        // new LongestString().MainRun();
-        //new Subsets().MainRun();
-
-
-        ////string[] str = new string[] { "asd", "avfga", "", "tryaaagvxca", "rfca", "a" };
-        //string[] str = new string[] { "aaa", "apa", "aaxa", "yaaaaxxxxxaaba" };
-
-        //tt.solution(str);
-        // Console.Write((int)Math.Ceiling((decimal)(85 - 10) / 30));
-        //(new LongestString()).MainRun();
+        new MinChangeWord().MainRun();
     }
 
 }

@@ -10,9 +10,6 @@ namespace HackerRank.Problems.LeetCode
     {
         public override void MainRun()
         {
-            GetAllSubsetsOfK(5, 3);
-            Console.ReadKey();
-            return;
             string input = Console.ReadLine();
 
             var set = Array.ConvertAll(input.Split(' '), x => Convert.ToInt32(x));
@@ -41,47 +38,57 @@ namespace HackerRank.Problems.LeetCode
                 }
             }
 
-
-
             if (rightParenthesIndexes.Count > leftParenthesIndexes.Count)
             {
                 int incorrectCount = rightParenthesIndexes.Count - leftParenthesIndexes.Count;
 
-                List<int> incorrectList = new List<int>();
+                List<byte[]> incorrectList = GetAllSubsetsOfK(rightParenthesIndexes.Count, incorrectCount);
 
-                //while (incorrectCount > 0)
-                //{
-                for (int i = 0; i < rightParenthesIndexes.Count; i++)
+                foreach (byte[] set in incorrectList)
                 {
-                    incorrectList.Add(rightParenthesIndexes[i]);
+
                 }
-                //}
             }
 
         }
-
-
-        public List<int[]> GetExtraParentheses(List<int> list, int extraLimit)
+        private string TrimParentheses(string s)
         {
-            int[] indeces = new int[extraLimit];
-            List<int[]> indecesList = new List<int[]>();
+            bool extraParenth = s.Length > 0 && (s[0] == ')' || s[s.Length - 1] == '(');
 
-            for (int i = 0; i < list.Count - extraLimit; i++)
+            int suffixCount = 0;
+            int prefxCount = 0;
+            int i = 0;
+
+            while (i < s.Length && extraParenth)
             {
-                //indeces[0] = list[i];
-                for (int k = i + 1; k <= list.Count - extraLimit + 1; k++)
-                {
-                    indeces = new int[extraLimit];
-                    indeces[0] = list[i];
-                    for (int j = 1; j < extraLimit; j++)
-                    {
-                        indeces[j] = list[j + k - 1];
-                    }
-                    indecesList.Add(indeces);
-                }
+                if (s[i] == ')')
+                    prefxCount++;
+                else if (s[s.Length - i] == '(')
+                    suffixCount++;
+
+                i++;
+                extraParenth = s[i] == ')' || s[s.Length - i] == '(';
             }
 
-            return indecesList;
+            return s.Substring(prefxCount, s.Length - suffixCount);
+        }
+
+        private string TrimSuffixParentheses(string s)
+        {
+            int i = 0;
+            while (s[i++] == ')')
+            { }
+
+            return s.Substring(i);
+        }
+
+        private string TrimPrefixParentheses(string s)
+        {
+            int i = s.Length - 1;
+            while (s[i--] == '(')
+            { }
+
+            return s.Substring(0, s.Length - i);
         }
 
         public List<byte[]> GetAllSubsetsOfK(int n, int k)
