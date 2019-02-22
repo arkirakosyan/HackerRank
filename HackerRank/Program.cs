@@ -22,8 +22,6 @@ class Solution
 {
     static void Main(string[] args)
     {
-        int[,] a = new int[5,6];
-
         new MinChangeWord().MainRun();
     }
 

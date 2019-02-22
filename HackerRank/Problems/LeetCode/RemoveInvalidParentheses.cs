@@ -14,14 +14,8 @@ namespace HackerRank.Problems.LeetCode
 
             var set = Array.ConvertAll(input.Split(' '), x => Convert.ToInt32(x));
 
-            List<int[]> a = GetExtraParentheses(new List<int>(set), 3);
-
-            foreach (var i in a)
-            {
-                PrintArrHorizontal(i);
-                Console.WriteLine();
-            }
-            Console.ReadKey();
+         
+           
             List<int> leftParenthesIndexes = new List<int>();
             List<int> rightParenthesIndexes = new List<int>();
 
@@ -44,10 +38,7 @@ namespace HackerRank.Problems.LeetCode
 
                 List<byte[]> incorrectList = GetAllSubsetsOfK(rightParenthesIndexes.Count, incorrectCount);
 
-                foreach (byte[] set in incorrectList)
-                {
-
-                }
+              
             }
 
         }
