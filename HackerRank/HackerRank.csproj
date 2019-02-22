@@ -58,12 +58,17 @@
     <Compile Include="Problems\Medium\BiggerIsGreater.cs" />
     <Compile Include="Problems\Medium\ClimbingLeaderBoard.cs" />
     <Compile Include="Problems\Medium\FibonacciModified.cs" />
+    <Compile Include="Problems\Medium\MatrixSummation.cs" />
+    <Compile Include="Problems\Medium\MinimumSwap2.cs" />
     <Compile Include="Problems\Medium\NewYearChaos.cs" />
     <Compile Include="Problems\Medium\QueensAttack.cs" />
     <Compile Include="Problems\Other\CustomMultiplication.cs" />
+    <Compile Include="Problems\Other\MinChangeWord.cs" />
     <Compile Include="Problems\Other\MyBalancedTree.cs" />
     <Compile Include="Problems\Other\MyGraph.cs" />
     <Compile Include="Problems\Other\MyHashTable.cs" />
+    <Compile Include="Problems\Other\MyHeap.cs" />
+    <Compile Include="Problems\Other\MyLinkedList.cs" />
     <Compile Include="Problems\Other\Scopes.cs" />
     <Compile Include="Problems\Other\StringSearch.cs" />
     <Compile Include="Problems\_ProblemBase.cs" />
