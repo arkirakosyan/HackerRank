@@ -8,43 +8,6 @@ namespace HackerRank.Problems.LeetCode
 {
     public class RemoveInvalidParentheses : _ProblemBase
     {
-
-
-
-
-
-        void BinaryIncrement()
-        {
-            for (int i = n - 1; i >= 0; i--)
-            {
-                if (binary[i] == 0)
-                {
-                    binary[i] = 1;
-                    return;
-                }
-                binary[i] = 0;
-            }
-        }
-
-        void Printsubset()
-        {
-            List<int> subset = new List<int>();
-
-            for (int i = n - 1; i >= 0; i--)
-            {
-                if (binary[i] == 1) subset.Add(set[n - 1 - i]);
-            }
-
-            Console.WriteLine("");
-            Console.Write(String.Join(",", subset));
-        }
-
-
-
-        public int[] set;
-        public byte[] binary;
-        public int n;
-
         public override void MainRun()
         {
             GetAllSubsetsOfK(5, 3);
@@ -52,25 +15,7 @@ namespace HackerRank.Problems.LeetCode
             return;
             string input = Console.ReadLine();
 
-            set = Array.ConvertAll(input.Split(' '), x => Convert.ToInt32(x));
-
-            //n = set.Length;
-            //binary = new byte[n];
-
-            //// ...
-            //int size = 2 << (n - 1);
-
-            //for (int i = 0; i < size; i++)
-            //{
-            //    Printsubset();
-            //    BinaryIncrement();
-            //}
-            //return;
-
-            var x1 = GetItem(3, set, 0);
-
-            Console.WriteLine(x1);
-
+            var set = Array.ConvertAll(input.Split(' '), x => Convert.ToInt32(x));
 
             List<int[]> a = GetExtraParentheses(new List<int>(set), 3);
 
@@ -177,7 +122,7 @@ namespace HackerRank.Problems.LeetCode
                             newXListLong.Add(xNewLong, newX);
                             newXList.Add(newX);
                             //if(n== N)
-                                PrintArrHorizontal(newX);
+                                //PrintArrHorizontal(newX);
                         }
 
                         if (oneFound == k)
@@ -190,7 +135,7 @@ namespace HackerRank.Problems.LeetCode
                                 newXListLong.Add(xNewLong, newX);
                                 newXList.Add(newX);
                             //if(n== N)
-                                    PrintArrHorizontal(newX);
+                                    //PrintArrHorizontal(newX);
                             }
                         }
                     }
@@ -223,20 +168,7 @@ namespace HackerRank.Problems.LeetCode
             return newArr;
         }
 
-        public string GetItem(int setLength, int[] list, int startIndex)
-        {
-            if (setLength <= 1)
-                return list[startIndex].ToString();
-
-            string s = "";
-            for (int i = 0; i < setLength; i++)
-            {
-                s += GetItem(setLength - i, list, startIndex + i);
-            }
-
-            return s;
-        }
-
+  
         public bool ValidateParentheses(List<int> left, List<int> right)
         {
             if (right.Count != left.Count) return false;

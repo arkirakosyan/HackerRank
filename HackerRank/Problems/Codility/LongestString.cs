@@ -98,30 +98,42 @@ namespace HackerRank.Problems.Codility
                 }
             }
 
+            public StringDetails GetMax(int excludeIndex, List<StringDetails> list)
+            {
+                if (list.Count == 0 || (list.Count == 1 && excludeIndex == 0))  return new StringDetails { Index = -1, Count = 0 };
+
+                StringDetails maxDetails = new StringDetails { Index = -1, Count = 0 };
+
+                for (int i = 0; i < list.Count; i++)
+                {
+                    if (list[i].Index != excludeIndex && list[i].Count > maxDetails.Count)
+                    {
+                        maxDetails = list[i];
+                    }
+                }
+                return maxDetails;
+            }
             public int CalcBestCount()
             {
-                if (_frontList.Count > _backList.Count)
-                    return CalcBestCount(_frontList, _backList);
+                StringDetails maxFront = GetMax(-1, _frontList);
+                StringDetails maxBack = GetMax(-1, _backList);
 
-                return CalcBestCount(_backList, _frontList);
-            }
-
-            public int CalcBestCount(List<StringDetails> frontList, List<StringDetails> backList)
-            {
-                int localBigMax = 0;
-
-                foreach (var front in frontList)
+                if (maxFront.Index == maxBack.Index)
                 {
-                    localBigMax = Math.Max(localBigMax, front.Count);
+                    var newMaxFront = GetMax(maxFront.Index, _frontList);
+                    var newMaxBack = GetMax(maxBack.Index, _backList);
 
-                    foreach (var back in backList)
+                    if (newMaxBack.Count + maxFront.Count > maxBack.Count + newMaxFront.Count)
                     {
-                        if (back.Index != front.Index)
-                            localBigMax = Math.Max(localBigMax, back.Count + front.Count);
+                        maxBack = newMaxBack;
+                    }
+                    else
+                    {
+                        maxFront = newMaxFront;
                     }
                 }
 
-                return localBigMax = Math.Max(_maxNoneCount, localBigMax + _bothCount);
+                return  Math.Max(_maxNoneCount, maxFront.Count + maxBack.Count + _bothCount);
             }
         }
 
