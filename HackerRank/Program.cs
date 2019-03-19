@@ -22,7 +22,8 @@ class Solution
 {
     static void Main(string[] args)
     {
-        new MinChangeWord().MainRun();
+        new FindInRange().MainRun();
     }
 
+   
 }
