@@ -37,11 +37,11 @@ namespace HackerRank.Problems.Other
         }
 
 
-        public int MinChangeCountGraph(string[] words, string beginWord, string endWord)
-        {
-            Graph graph = new Graph();
-            graph.Nodes.Add()
-        }
+        //public int MinChangeCountGraph(string[] words, string beginWord, string endWord)
+        //{
+        //    Graph graph = new Graph();
+        //    graph.Nodes.Add()
+        //}
 
 
 
@@ -95,59 +95,59 @@ namespace HackerRank.Problems.Other
         }
     }
 
-    public class WordGraph
-    {
-        private Dictionary<string, int> wordNodeIndex = new Dictionary<string, int>();
-        public List<WordNode> Words { get; set; }
-        public WordNode BenginWord { get; set; }
-        public WordNode EndWord { get; set; }
+    //public class WordGraph
+    //{
+    //    private Dictionary<string, int> wordNodeIndex = new Dictionary<string, int>();
+    //    public List<WordNode> Words { get; set; }
+    //    public WordNode BenginWord { get; set; }
+    //    public WordNode EndWord { get; set; }
 
-        private List<string> GetAllAvailableNeighbours(string myWord, HashSet<string> initialWords, Action<WordNode> addNeighbour)
-        {
-            List<string> myWordAvailableNeightbours = new List<string>();
+    //    private List<string> GetAllAvailableNeighbours(string myWord, HashSet<string> initialWords, Action<WordNode> addNeighbour)
+    //    {
+    //        List<string> myWordAvailableNeightbours = new List<string>();
 
-            for (int i = 0; i < myWord.Length; i++)
-            {
-                foreach (var word in initialWords)
-                {
-                    if (myWord != word && myWord[i] != word[i])
-                    {
-                        string newWord = myWord.Substring(0, i) + word[i] + myWord.Substring(i + 1);
-                        if (initialWords.Contains(newWord))
-                        {
-                            myWordAvailableNeightbours.Add(newWord);
-                        }
-                    }
-                }
-            }
-        }
-        public void InitGraph(string[] words, string beginWord, string endWord)
-        {
+    //        for (int i = 0; i < myWord.Length; i++)
+    //        {
+    //            foreach (var word in initialWords)
+    //            {
+    //                if (myWord != word && myWord[i] != word[i])
+    //                {
+    //                    string newWord = myWord.Substring(0, i) + word[i] + myWord.Substring(i + 1);
+    //                    if (initialWords.Contains(newWord))
+    //                    {
+    //                        myWordAvailableNeightbours.Add(newWord);
+    //                    }
+    //                }
+    //            }
+    //        }
+    //    }
+    //    public void InitGraph(string[] words, string beginWord, string endWord)
+    //    {
 
-            HashSet<string> wordsSet = new HashSet<string>(words);
-            foreach (var word in words)
-            {
-                WordNode myWordNode = new WordNode(word);
-                List<string> myWordAvailableNeightbours = GetAllAvailableNeighbours(word, wordsSet);
-                for
+    //        HashSet<string> wordsSet = new HashSet<string>(words);
+    //        foreach (var word in words)
+    //        {
+    //            WordNode myWordNode = new WordNode(word);
+    //            List<string> myWordAvailableNeightbours = GetAllAvailableNeighbours(word, wordsSet);
+    //            for
 
-            }
-
-
+    //        }
 
 
-            if (!wordNodeIndex.ContainsKey(word))
-            {
-                var newNode = new WordNode(word);
-                for (int i = 0; i < word.Length; i++)
-                {
-                    string newWord = word.Substring(0, i) + words[j][i] + beginWord.Substring(i + 1);
-                }
 
-                Words.Add(new WordNode(word));
-            }
-        }
-    }
+
+    //        if (!wordNodeIndex.ContainsKey(word))
+    //        {
+    //            var newNode = new WordNode(word);
+    //            for (int i = 0; i < word.Length; i++)
+    //            {
+    //                string newWord = word.Substring(0, i) + words[j][i] + beginWord.Substring(i + 1);
+    //            }
+
+    //            Words.Add(new WordNode(word));
+    //        }
+    //    }
+    //}
 
     public class WordNode
     {

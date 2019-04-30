@@ -8,177 +8,96 @@ namespace HackerRank.Problems.LeetCode
 {
     public class RemoveInvalidParentheses : _ProblemBase
     {
+        int _extraLeftCount;
+        int _extraRightCount;
+
+        int _correctParentheseCount;
+        string _initialExpression;
+        HashSet<string> _validSolutions = new HashSet<string>();
+
         public override void MainRun()
         {
-            string input = Console.ReadLine();
+            //_initialExpression = Console.ReadLine();
+            //_initialExpression = "()a)b(s(c()()f)";
 
-            var set = Array.ConvertAll(input.Split(' '), x => Convert.ToInt32(x));
+            _initialExpression = "(((";
 
-         
-           
-            List<int> leftParenthesIndexes = new List<int>();
-            List<int> rightParenthesIndexes = new List<int>();
 
-            for (int i = 0; i < input.Length; i++)
+            CalcExtraParentheses();
+            BuildValidExpressions(_initialExpression, 0, _extraLeftCount, _extraRightCount, 0, 0);
+            Console.WriteLine(_count);
+
+
+            PrintArrVertical(_validSolutions.ToList());
+        }
+
+        private void CalcExtraParentheses()
+        {
+            for (int i = 0; i < _initialExpression.Length; i++)
             {
-                switch (input[i])
+                switch (_initialExpression[i])
                 {
                     case '(':
-                        leftParenthesIndexes.Add(i);
+                        _extraLeftCount++;
+                        _correctParentheseCount++;
                         break;
                     case ')':
-                        rightParenthesIndexes.Add(i);
+                        if (_extraLeftCount > 0)
+                        {
+                            _extraLeftCount--;
+                        }
+                        else
+                        {
+                            _extraRightCount++;
+                        }
+                        _correctParentheseCount++;
                         break;
                 }
             }
-
-            if (rightParenthesIndexes.Count > leftParenthesIndexes.Count)
-            {
-                int incorrectCount = rightParenthesIndexes.Count - leftParenthesIndexes.Count;
-
-                List<byte[]> incorrectList = GetAllSubsetsOfK(rightParenthesIndexes.Count, incorrectCount);
-
-              
-            }
-
+            _correctParentheseCount = (_correctParentheseCount - (_extraLeftCount + _extraRightCount)) / 2;
         }
-        private string TrimParentheses(string s)
+        private int _count = 0;
+        private void BuildValidExpressions(string expression, int startIndex, int extraLeftCount, int extraRightCount, int countedLeft, int countedRight)
         {
-            bool extraParenth = s.Length > 0 && (s[0] == ')' || s[s.Length - 1] == '(');
-
-            int suffixCount = 0;
-            int prefxCount = 0;
-            int i = 0;
-
-            while (i < s.Length && extraParenth)
+            _count++;
+            Console.WriteLine($"Exp: {expression}, I: {startIndex}, ELC: {extraLeftCount} ERC: {extraRightCount} L: {countedLeft} R: {countedRight}");
+            if (startIndex == expression.Length)
             {
-                if (s[i] == ')')
-                    prefxCount++;
-                else if (s[s.Length - i] == '(')
-                    suffixCount++;
-
-                i++;
-                extraParenth = s[i] == ')' || s[s.Length - i] == '(';
-            }
-
-            return s.Substring(prefxCount, s.Length - suffixCount);
-        }
-
-        private string TrimSuffixParentheses(string s)
-        {
-            int i = 0;
-            while (s[i++] == ')')
-            { }
-
-            return s.Substring(i);
-        }
-
-        private string TrimPrefixParentheses(string s)
-        {
-            int i = s.Length - 1;
-            while (s[i--] == '(')
-            { }
-
-            return s.Substring(0, s.Length - i);
-        }
-
-        public List<byte[]> GetAllSubsetsOfK(int n, int k)
-        {
-            List<byte[]> newXList = new List<byte[]>();
-
-            if (n <= k)
-            {
-                var x = new byte[n];
-                for (int i = 0; i < k; i++)
-                    x[i] = 1;
-
-                newXList.Add(x);
-                return newXList;
-            }
-
-            var prevXList = GetAllSubsetsOfK(n - 1, k);
-
-            Dictionary<string, byte[]> newXListLong = new Dictionary<string, byte[]>();
-
-            foreach (var prevX in prevXList)
-            {
-                //PrintLine($"Prev: {string.Join(", ", prevX)}");
-
-                int oneFound = 0;
-                for (int i = 0; i < n - 1; i++)
+                Console.WriteLine();
+                if (countedLeft == _correctParentheseCount && countedRight == _correctParentheseCount && extraRightCount == 0 && extraLeftCount == 0)
                 {
-                    if (prevX[i] == 1)
-                    {
-                        oneFound++;
+                    if (!_validSolutions.Contains(expression))
+                        _validSolutions.Add(expression);
+                }
+                return;
+            }
 
-                        byte[] newX = CopyArrayExtendted(prevX, i);
+            int i = startIndex;
+            if (expression[i] != '(' && expression[i] != ')')
+            {
+                BuildValidExpressions(expression, i + 1, extraLeftCount, extraRightCount, countedLeft, countedRight);
+            }
+            else if (expression[i] == '(')
+            {
+                BuildValidExpressions(expression, i + 1, extraLeftCount, extraRightCount, countedLeft + 1, countedRight);
 
-                        string xNewLong = BitConverter.ToString(newX, 0);
-
-                        if (!newXListLong.ContainsKey(xNewLong))
-                        {
-                            newXListLong.Add(xNewLong, newX);
-                            newXList.Add(newX);
-                            //if(n== N)
-                                //PrintArrHorizontal(newX);
-                        }
-
-                        if (oneFound == k)
-                        {
-                            newX = CopyArrayExtendted(prevX, prevX.Length);
-                            xNewLong = BitConverter.ToString(newX, 0);
-
-                            if (!newXListLong.ContainsKey(xNewLong))
-                            {
-                                newXListLong.Add(xNewLong, newX);
-                                newXList.Add(newX);
-                            //if(n== N)
-                                    //PrintArrHorizontal(newX);
-                            }
-                        }
-                    }
+                if (extraLeftCount > 0)
+                {
+                    BuildValidExpressions(expression.Substring(0, i) + expression.Substring(i + 1), i, extraLeftCount - 1, extraRightCount, countedLeft, countedRight);
                 }
             }
-            return newXList;
-        }
-
-        public byte[] CopyArrayExtendted(byte[] arr, int index)
-        {
-            byte[] newArr = new byte[arr.Length + 1];
-
-            int oneAdded = 0;
-            for (int j = 0; j <= arr.Length; j++)
+            else if (expression[i] == ')')
             {
-                if (j == index)
+                if (countedLeft > countedRight)
                 {
-                    newArr[j] = 0;
-                    if (++j > arr.Length)
-                        break;
-                    newArr[j] = arr[j - 1];
-                    oneAdded++;
+                    BuildValidExpressions(expression, i + 1, extraLeftCount, extraRightCount, countedLeft, countedRight + 1);
                 }
-                else
+
+                if (extraRightCount > 0)
                 {
-                    newArr[j] = arr[j - oneAdded];
+                    BuildValidExpressions(expression.Substring(0, i) + expression.Substring(i + 1), i, extraLeftCount, extraRightCount - 1, countedLeft, countedRight);
                 }
             }
-
-            return newArr;
-        }
-
-  
-        public bool ValidateParentheses(List<int> left, List<int> right)
-        {
-            if (right.Count != left.Count) return false;
-
-            for (int i = 0; i < right.Count; i++)
-            {
-                if (right[i] < left[i])
-                {
-                    return false;
-                }
-            }
-            return true;
         }
     }
 }
