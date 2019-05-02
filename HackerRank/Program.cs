@@ -17,12 +17,14 @@ using HackerRank.Problems.Other;
 using HackerRank.Problems.LeetCode;
 using HackerRank.Problems.Arrays;
 using HackerRank.Problems.Codility;
+using HackerRank.Problems.Bitwise;
+using HackerRank.Problems.GeekForGeeks;
 
 class Solution
 {
     static void Main(string[] args)
     {
-        new FindInRange().MainRun();
+        new NumberManipulations().MainRun();
     }
 
    
