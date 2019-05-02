@@ -51,6 +51,7 @@
     <Compile Include="Problems\Codility\LongestString.cs" />
     <Compile Include="Problems\Difficult\ArrayManipulations.cs" />
     <Compile Include="Problems\Difficult\MatrixLayerRotation.cs" />
+    <Compile Include="Problems\DynamicProgramming\LCS.cs" />
     <Compile Include="Problems\LeetCode\AddTwoNumbers.cs" />
     <Compile Include="Problems\Arrays\MergeSortedArrays.cs" />
     <Compile Include="Problems\LeetCode\FindInRange.cs" />
