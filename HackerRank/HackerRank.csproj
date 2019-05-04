@@ -53,12 +53,14 @@
     <Compile Include="Problems\Difficult\ArrayManipulations.cs" />
     <Compile Include="Problems\Difficult\MatrixLayerRotation.cs" />
     <Compile Include="Problems\GeekForGeeks\NumberManipulations.cs" />
+    <Compile Include="Problems\DynamicProgramming\LCS.cs" />
     <Compile Include="Problems\LeetCode\AddTwoNumbers.cs" />
     <Compile Include="Problems\Arrays\MergeSortedArrays.cs" />
     <Compile Include="Problems\LeetCode\FindInRange.cs" />
     <Compile Include="Problems\LeetCode\RemoveInvalidParentheses.cs" />
     <Compile Include="Problems\Medium\ACMICPCTeam.cs" />
     <Compile Include="Problems\Medium\BiggerIsGreater.cs" />
+    <Compile Include="Problems\Medium\CheckBSTTree.cs" />
     <Compile Include="Problems\Medium\ClimbingLeaderBoard.cs" />
     <Compile Include="Problems\Medium\FibonacciModified.cs" />
     <Compile Include="Problems\Medium\MatrixSummation.cs" />
