@@ -57,6 +57,7 @@
     <Compile Include="Problems\GeekForGeeks\NumberManipulations.cs" />
     <Compile Include="Problems\DynamicProgramming\LCS.cs" />
     <Compile Include="Problems\GeekForGeeks\SearchInRotatedArray.cs" />
+    <Compile Include="Problems\DynamicProgramming\LIS.cs" />
     <Compile Include="Problems\LeetCode\AddTwoNumbers.cs" />
     <Compile Include="Problems\Arrays\MergeSortedArrays.cs" />
     <Compile Include="Problems\LeetCode\FindInRange.cs" />
