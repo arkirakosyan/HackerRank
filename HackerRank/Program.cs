@@ -18,12 +18,13 @@ using HackerRank.Problems.LeetCode;
 using HackerRank.Problems.Arrays;
 using HackerRank.Problems.Codility;
 using HackerRank.Problems.DynamicProgramming;
+using HackerRank.Problems.GeekForGeeks;
 
 class Solution
 {
     static void Main(string[] args)
     {
-        new LCS().MainRun();
+        new MinJumps().MainRun();
         Console.ReadKey();
     }
 
