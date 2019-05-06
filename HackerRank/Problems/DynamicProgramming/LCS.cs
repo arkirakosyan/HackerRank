@@ -204,12 +204,38 @@ namespace HackerRank.Problems.DynamicProgramming
         {
             int[,] table = new int[m.Length + 1, n.Length + 1];
 
+            int[] arrUp = new int[n.Length + 1];
+            int[] arr = new int[n.Length + 1];
+
+            for (int p = 0; p < arrUp.Length; p++)
+            {
+                arrUp[p] = p;
+            }
+
+
             for (int i = 0; i < m.Length; i++)
             {
+                table[i + 1, 0] = i + 1;
                 for (int j = 0; j < n.Length; j++)
                 {
+                    table[0, j + 1] = j + 1;
                     table[i + 1, j + 1] = (m[i] == n[j]) ? table[i, j] + 1 : Math.Min(table[i + 1, j], table[i, j + 1]) + 1;
+
+                    arr[j + 1] = (m[i] == n[j]) ? arrUp[j] + 1 : Math.Min(arr[j], arrUp[j + 1]) + 1;
                 }
+
+                arrUp = arr;
+                if(i == m.Length - 1)
+                arr = new int[n.Length + 1];
+            }
+
+            for (int i = 0; i < table.GetLength(0); i++)
+            {
+                for (int j = 0; j < table.GetLength(1); j++)
+                {
+                    Print(table[i, j]);
+                }
+                Console.WriteLine();
             }
 
             return table[m.Length, n.Length];
