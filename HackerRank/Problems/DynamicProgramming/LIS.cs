@@ -10,47 +10,56 @@ namespace HackerRank.Problems.DynamicProgramming
     {
         public override void MainRun()
         {
-            PrintArr(new int[] { 1, 2, 3, 4, 5, 6, 7 }, 0);
+            // PrintArr(new int[] { 1, 2, 3, 4, 5, 6, 7 }, 0);
+
+                //int[] arr = new int[] { 3, 4, 7, 5, 6, 1, 2, 3, 8 };
+            int[] arr = new int[] {1,2,3 };
+
+            Print(LISLength(arr));
+            //PrintArrHorizontal(lis.ToArray());
         }
 
-
-        private void PrintArr(int[] arr, int i)
+        private int LISLength(int[] arr)
         {
-            //if (i < arr.Length)
+            return LISRecursion(arr, arr.Length - 1, 0);
+        }
+
+        List<int> lis = new List<int>();
+        IDictionary<int, int> memo = new Dictionary<int, int>();
+
+        private int LISRecursion(int[] arr, int i, int max)
+        {
+            //https://www.techiedelight.com/longest-increasing-subsequence-using-dynamic-programming/
+            //string memo
+            if (memo.ContainsKey(i))
+            {
+                return memo[i];
+            }
+
+            if (i == 0)
+            {
+                memo[i] = 1;
+            }
+            else
+            {
+
+                int maxExcludeCurrent = LISRecursion(arr, i - 1, max);
+                int maxIncludeCurrent = 0;
+
+                if (arr[i] > max)
+                {
+                    maxIncludeCurrent = LISRecursion(arr, i - 1, arr[i]) + 1;
+                }
+
+                memo.Add(i, Math.Max(maxIncludeCurrent, maxExcludeCurrent));
+            }
+            //if (maxIncludeCurrent > maxExcludeCurrent && )
             //{
-            //    Console.WriteLine(arr[i]);
-            //    PrintArr(arr, i + 1);
+            //    lis.Add(arr[i]);
             //}
-
-            if (i < 10)
-            {
-                PrintArr(arr, i + 1);
-                Console.WriteLine(i);
-            }
+            return memo[i];
         }
 
-        //private int CalcLISLength(int[] arr, )
-        //{
-
-        //}
-
-
-        private int GetAllSubSets(int[] arr, int k, List<int[]> subsets)
-        {
-            if (k == 0)
-            {
-                subsets.Add(new int[] { });
-                return 0;
-            }
-
-            if (k == 1)
-            {
-                subsets.Add(new int[] { arr[k - 1] });
-                return 1;
-            }
-
-           return GetAllSubSets(arr, k - 1, subsets)
-        }
     }
 
 
