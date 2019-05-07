@@ -23,7 +23,7 @@ class Solution
 {
     static void Main(string[] args)
     {
-        new LIS().MainRun();
+        new Knapsack().MainRun();
         Console.ReadKey();
     }
 

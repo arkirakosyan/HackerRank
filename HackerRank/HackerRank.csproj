@@ -53,6 +53,7 @@
     <Compile Include="Problems\Difficult\ArrayManipulations.cs" />
     <Compile Include="Problems\Difficult\MatrixLayerRotation.cs" />
     <Compile Include="Problems\DynamicProgramming\AllSubsets.cs" />
+    <Compile Include="Problems\DynamicProgramming\Knapsack.cs" />
     <Compile Include="Problems\GeekForGeeks\MinJumps.cs" />
     <Compile Include="Problems\GeekForGeeks\NumberManipulations.cs" />
     <Compile Include="Problems\DynamicProgramming\LCS.cs" />
