@@ -24,7 +24,7 @@ class Solution
 {
     static void Main(string[] args)
     {
-        new AllPermutions().MainRun();
+        new MyTreeManager().MainRun();
         Console.ReadKey();
     }
 

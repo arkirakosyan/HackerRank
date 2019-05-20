@@ -53,6 +53,7 @@
     <Compile Include="Problems\Difficult\ArrayManipulations.cs" />
     <Compile Include="Problems\Difficult\MatrixLayerRotation.cs" />
     <Compile Include="Problems\DynamicProgramming\AllSubsets.cs" />
+    <Compile Include="Problems\DynamicProgramming\CoinChange.cs" />
     <Compile Include="Problems\DynamicProgramming\Knapsack.cs" />
     <Compile Include="Problems\GeekForGeeks\AllPermutions.cs" />
     <Compile Include="Problems\GeekForGeeks\MinJumps.cs" />
@@ -60,6 +61,7 @@
     <Compile Include="Problems\DynamicProgramming\LCS.cs" />
     <Compile Include="Problems\GeekForGeeks\SearchInRotatedArray.cs" />
     <Compile Include="Problems\DynamicProgramming\LIS.cs" />
+    <Compile Include="Problems\GeekForGeeks\WordBreak.cs" />
     <Compile Include="Problems\LeetCode\AddTwoNumbers.cs" />
     <Compile Include="Problems\Arrays\MergeSortedArrays.cs" />
     <Compile Include="Problems\LeetCode\FindInRange.cs" />
@@ -80,6 +82,7 @@
     <Compile Include="Problems\Other\MyHashTable.cs" />
     <Compile Include="Problems\Other\MyHeap.cs" />
     <Compile Include="Problems\Other\MyLinkedList.cs" />
+    <Compile Include="Problems\Other\MyTree.cs" />
     <Compile Include="Problems\Other\Scopes.cs" />
     <Compile Include="Problems\Other\StepsCount.cs" />
     <Compile Include="Problems\Other\StringSearch.cs" />
