@@ -12,16 +12,16 @@ namespace HackerRank.Problems.DynamicProgramming
         {
             // PrintArr(new int[] { 1, 2, 3, 4, 5, 6, 7 }, 0);
 
-                //int[] arr = new int[] { 3, 4, 7, 5, 6, 1, 2, 3, 8 };
-            int[] arr = new int[] {1,2,3 };
+                int[] arr = new int[] { 3,9, 4, 7, 5, 6, 1, 2, 3,8 };
+            //int[] arr = new int[] {1,2,3 };
 
-            Print(LISLength(arr));
+            Print(LISBottomUp(arr));
             //PrintArrHorizontal(lis.ToArray());
         }
 
         private int LISLength(int[] arr)
         {
-            return LISRecursion(arr, arr.Length - 1, 0);
+            return LISRecursion(arr, 0, int.MinValue);
         }
 
         List<int> lis = new List<int>();
@@ -30,34 +30,46 @@ namespace HackerRank.Problems.DynamicProgramming
         private int LISRecursion(int[] arr, int i, int max)
         {
             //https://www.techiedelight.com/longest-increasing-subsequence-using-dynamic-programming/
-            //string memo
-            if (memo.ContainsKey(i))
-            {
-                return memo[i];
-            }
 
-            if (i == 0)
+            if (i == arr.Length)
             {
-                memo[i] = 1;
+                return 0;
             }
             else
             {
 
-                int maxExcludeCurrent = LISRecursion(arr, i - 1, max);
+                int maxExcludeCurrent = LISRecursion(arr, i + 1, max);
                 int maxIncludeCurrent = 0;
 
                 if (arr[i] > max)
                 {
-                    maxIncludeCurrent = LISRecursion(arr, i - 1, arr[i]) + 1;
+                    maxIncludeCurrent = LISRecursion(arr, i + 1, arr[i]) + 1;
                 }
-
-                memo.Add(i, Math.Max(maxIncludeCurrent, maxExcludeCurrent));
+                return Math.Max(maxIncludeCurrent, maxExcludeCurrent);
             }
-            //if (maxIncludeCurrent > maxExcludeCurrent && )
-            //{
-            //    lis.Add(arr[i]);
-            //}
-            return memo[i];
+        }
+
+        private int LISBottomUp(int[] arr)
+        {
+            int maxLis = 1;
+            int[] lis = new int[arr.Length];
+
+            lis[0] = 1;
+            for (int i = 1; i < arr.Length; i++)
+            {
+                for (int j = 0; j < i; j++)
+                {
+                    if (arr[j] < arr[i] && lis[i] < lis[j])
+                    {
+                        lis[i] = lis[j];
+                    }
+
+                }
+                lis[i]++;
+
+                if (lis[i] > maxLis) maxLis = lis[i];
+            }
+            return maxLis;
         }
 
     }

@@ -152,7 +152,7 @@ namespace HackerRank.Problems
             long hashKeysIndex = Math.Abs(key.GetHashCode()) % MyHashTable_ARRAY_LENGTH;
             
             Node node = _hashNodes[hashKeysIndex];
-
+            
             return node.FindNodeValue(key);
         }
 
