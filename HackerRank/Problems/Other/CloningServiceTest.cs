@@ -187,6 +187,10 @@ namespace HackerRank.Problems.Other
                 },
                 Right = new Node()
             };
+            //var d = new Dictionary<string, Node>();
+            //d["a"] = n;
+            //var dd = Cloner.Clone(d);
+
             var s = new List<Node>() { n, n };
             var c = Cloner.Clone(s);
             Assert(s != c);
