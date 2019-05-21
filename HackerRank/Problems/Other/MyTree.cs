@@ -11,7 +11,8 @@ namespace HackerRank.Problems.Other
         public override void MainRun()
         {
             MyTree tree = new MyTree();
-            tree.AddRange(new int[] { 5, 6, 4, 7, 3, 8, 2 });
+            //tree.AddRange(new int[] { 5, 6, 4, 7, 3, 8, 2 });
+            tree.AddRange(new int[] { 5, 3, 7, 6, 8, 2, 4 });
 
             tree.InOrderTeraversal();
         }
@@ -75,6 +76,11 @@ namespace HackerRank.Problems.Other
             if (Left != null) Left.InOrderTeraversal();
             Console.WriteLine(Value.ToString() + " ");
             if (Right != null) Right.InOrderTeraversal();
+
+        }
+
+        public void LevelOrderTraversal()
+        {
 
         }
     }
