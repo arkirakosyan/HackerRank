@@ -24,7 +24,7 @@ class Solution
 {
     static void Main(string[] args)
     {
-        new MyTreeManager().MainRun();
+        new CloneTester().MainRun();
         Console.ReadKey();
     }
 

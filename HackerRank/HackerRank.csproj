@@ -76,6 +76,8 @@
     <Compile Include="Problems\Medium\MinimumSwap2.cs" />
     <Compile Include="Problems\Medium\NewYearChaos.cs" />
     <Compile Include="Problems\Medium\QueensAttack.cs" />
+    <Compile Include="Problems\Other\CloningService.cs" />
+    <Compile Include="Problems\Other\CloningServiceTest.cs" />
     <Compile Include="Problems\Other\CustomMultiplication.cs" />
     <Compile Include="Problems\Other\MinLetterChange.cs" />
     <Compile Include="Problems\Other\MyBalancedTree.cs" />
