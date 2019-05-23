@@ -65,13 +65,30 @@ namespace HackerRank.Problems.Other
     {
         T Clone<T>(T source);
     }
+    public enum CloningMode
+    {
+        Ignore,
+        Deep,
+        Shallow,
+    }
+    public class Cloneable : Attribute
+    {
+        public CloningMode CloneMode;
+
+        public Cloneable(CloningMode cloneMode)
+        {
+            this.CloneMode = cloneMode;
+        }
+    }
     public class CloningService : ICloningService
     {
+        private Dictionary<object, object> memo = new Dictionary<object, object>();
+        //public T Clone<T>(T source)
+        //{
+
+        //    return Clone(source, new Dictionary<object, object>());
+        //}
         public T Clone<T>(T source)
-        {
-            return Clone(source, new Hashtable());
-        }
-        private T Clone<T>(T source, Hashtable memo)
         {
             Type type = source.GetType();
 
@@ -80,181 +97,71 @@ namespace HackerRank.Problems.Other
                 return source;
             }
 
-            if (memo.Contains(source))
+            if (memo.ContainsKey(source))
             {
                 return (T)memo[source];
             }
-            memo[source] = null;
+
             if (type.IsArray)
             {
                 Type typeElement = Type.GetType(type.FullName.Substring(0, type.FullName.Length - 2));
                 var array = source as Array;
                 Array copiedArray = Array.CreateInstance(typeElement, array.Length);
+                memo[source] = copiedArray;
                 for (int i = 0; i < array.Length; i++)
                 {
-                    var cloneProperty = Clone(array.GetValue(i), memo) ?? copiedArray;
-                    copiedArray.SetValue(cloneProperty, i);
+                    copiedArray.SetValue(Clone(array.GetValue(i)), i);
                 }
-
-                memo[source] = copiedArray;
             }
             else  if (type.IsClass || type.IsValueType)
             {
-                if (source is ICollection collection)
+                if (source is ICollection && type.GetInterfaces().Any(x => x.IsGenericType && x.GetGenericTypeDefinition() == typeof(ICollection<>)))
                 {
-                    PropertyInfo[] collectionProperties = type.GetProperties();
-
-                    //var customListType1 = Type.GetType(type.FullName.Split('`')[0] + "<>").MakeGenericType((collectionProperties[collectionProperties.Length - 1]).PropertyType);
-                    //var customListType1 = Type.GetType(type.FullName.Split('`')[0] + "<" + type.GenericTypeArguments[0].FullName + "," + type.GenericTypeArguments[1].FullName + ">");
-                    var customListType = typeof(List<>).MakeGenericType((collectionProperties[collectionProperties.Length - 1]).PropertyType);
-                    var collectionClone = (IList)Activator.CreateInstance(customListType);
-
-                    foreach (var item in collection)
-                    {
-                        if (item == null)
-                            continue;
-
-                        var cloneProperty = Clone(item, memo) ?? collectionClone;
-                        collectionClone?.Add(cloneProperty);
-                    }
-
+                    var collectionClone = Activator.CreateInstance(type.GetGenericTypeDefinition().MakeGenericType(type.GetGenericArguments()));
                     memo[source] = collectionClone;
+
+                    var method = collectionClone.GetType().GetMethod("Add");
+
+                    foreach (var item in source as ICollection)
+                    {
+                        method.Invoke(collectionClone, new[] { Clone(item) });
+                    }
                 }
                 else
                 {
-                    object clone = FormatterServices.GetUninitializedObject(type);
+                    object clone = Activator.CreateInstance(type);
+                    memo[source] = clone;
 
                     // Copy fields
-                    FieldInfo[] fields = type.GetFields();
-                    foreach (FieldInfo field in fields.Where(p => p.IsPublic))
+                    FieldInfo[] fields = type.GetFields(BindingFlags.Public | BindingFlags.Instance);
+                    foreach (FieldInfo field in fields)
                     {
-                        CloningMode cloningMode = CloningMode.Deep;
-                        object ct = field.CustomAttributes.FirstOrDefault(x => x.AttributeType == typeof(Cloneable))?.ConstructorArguments[0].Value;
-                        if (ct != null)
-                        {
-                            cloningMode = (CloningMode)Convert.ToInt32(ct);
-                        }
-
+                        CloningMode cloningMode = field.IsDefined(typeof(Cloneable)) ? (field.GetCustomAttribute<Cloneable>()).CloneMode : CloningMode.Deep;
                         if (cloningMode == CloningMode.Ignore) continue;
+
                         object fieldValue = field.GetValue(source);
                         if (fieldValue != null)
                         {
-                            var cloneProperty = Clone(fieldValue, memo) ?? clone;
-                            field.SetValue(clone, cloningMode == CloningMode.Deep ? cloneProperty : fieldValue);
+                            field.SetValue(clone, cloningMode == CloningMode.Deep ? Clone(fieldValue) : fieldValue);
                         }
                     }
 
                     // Copy properties
-                    PropertyInfo[] properties = type.GetProperties();
-                    foreach (PropertyInfo property in properties.Where(p => p.CanRead && p.CanWrite))
+                    var properties = type.GetProperties(BindingFlags.Public | BindingFlags.Instance).Where(p => p.CanRead && p.CanWrite);
+                    foreach (PropertyInfo property in properties)
                     {
-                        CloningMode cloningMode = CloningMode.Deep;
-                        object ct = property.CustomAttributes.FirstOrDefault(x => x.AttributeType == typeof(Cloneable))?.ConstructorArguments[0].Value;
-                        if (ct != null)
-                        {
-                            cloningMode = (CloningMode)Convert.ToInt32(ct);
-                        }
+                        CloningMode cloningMode = property.IsDefined(typeof(Cloneable)) ? (property.GetCustomAttribute<Cloneable>()).CloneMode : CloningMode.Deep;
                         if (cloningMode == CloningMode.Ignore) continue;
 
                         object propertyValue = property.GetValue(source);
                         if (propertyValue != null)
                         {
-                            var cloneProperty = Clone(propertyValue, memo) ?? clone;
-                            property.SetValue(clone, cloningMode == CloningMode.Deep ? cloneProperty : propertyValue);
+                            property.SetValue(clone, cloningMode == CloningMode.Deep ? Clone(propertyValue) : propertyValue);
                         }
                     }
-                    memo[source] = clone;
                 }
-
             }
             return (T)memo[source];
         }
-
-
-
-        //// Clone the object Properties and its children recursively
-        //private object DeepClone<T>(object _desireObjectToBeCloned)
-        //{
-        //    BindingFlags Binding = BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.FlattenHierarchy;
-        //    Type _primaryType = _desireObjectToBeCloned.GetType();
-
-        //    if (_desireObjectToBeCloned == null)
-        //        return null;
-
-        //    if (_primaryType.IsArray)
-        //        return ((Array)_desireObjectToBeCloned).Clone();
-
-        //    object tObject = _desireObjectToBeCloned as IList;
-
-        //    if (tObject != null)
-        //    {
-        //        var properties = _primaryType.GetProperties();
-        //        // Get the IList Type of the object
-        //        var customList = typeof(List<>).MakeGenericType
-        //                         ((properties[properties.Length - 1]).PropertyType);
-        //        tObject = (IList)Activator.CreateInstance(customList);
-        //        var list = (IList)tObject;
-        //        // loop throw each object in the list and clone it
-        //        foreach (var item in ((IList)_desireObjectToBeCloned))
-        //        {
-        //            if (item == null)
-        //                continue;
-        //            var value = DeepClone<object>(item);
-        //            list?.Add(value);
-        //        }
-        //    }
-        //    else
-        //    {
-        //        // if the item is a string then Clone it and return it directly.
-        //        if (_primaryType == typeof(string))
-        //            return (_desireObjectToBeCloned as string)?.Clone();
-
-        //        // Create an empty object and ignore its construtore.
-        //        tObject = FormatterServices.GetUninitializedObject(_primaryType);
-        //        var fields = _desireObjectToBeCloned.GetType().GetFields(Binding);
-        //        foreach (var property in fields)
-        //        {
-        //            if (property.IsInitOnly) // Validate if the property is a writable one.
-        //                continue;
-        //            var value = property.GetValue(_desireObjectToBeCloned);
-        //            if (property.FieldType.IsClass && property.FieldType != typeof(string))
-        //                tObject.GetType().GetField(property.Name, Binding)?.SetValue
-        //                (tObject, DeepClone<object>(value));
-        //            else
-        //                tObject.GetType().GetField(property.Name, Binding)?.SetValue(tObject, value);
-        //        }
-        //    }
-
-        //    return tObject;
-        //}
-
-
-        //private void CopyClass<T>(T copyFrom, T copyTo, bool copyChildren)
-        //{
-        //    if (copyFrom == null || copyTo == null)
-        //        throw new Exception("Must not specify null parameters");
-
-        //    var properties = copyFrom.GetType().GetProperties();
-
-        //    foreach (var p in properties.Where(prop => prop.CanRead && prop.CanWrite))
-        //    {
-        //        if (p.PropertyType.IsClass && p.PropertyType != typeof(string))
-        //        {
-        //            if (!copyChildren) continue;
-
-        //            var destinationClass = Activator.CreateInstance(p.PropertyType);
-        //            object copyValue = p.GetValue(copyFrom);
-
-        //            CopyClass(copyValue, destinationClass, copyChildren);
-
-        //            p.SetValue(copyTo, destinationClass);
-        //        }
-        //        else
-        //        {
-        //            object copyValue = p.GetValue(copyFrom);
-        //            p.SetValue(copyTo, copyValue);
-        //        }
-        //    }
-        //}
     }
 }

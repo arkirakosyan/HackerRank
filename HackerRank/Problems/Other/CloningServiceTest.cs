@@ -7,21 +7,7 @@ using System.Threading.Tasks;
 
 namespace HackerRank.Problems.Other
 {
-    public enum CloningMode
-    {
-        Ignore,
-        Deep,
-        Shallow,
-    }
-    public class Cloneable : Attribute
-    {
-        private CloningMode ignore;
-
-        public Cloneable(CloningMode ignore)
-        {
-            this.ignore = ignore;
-        }
-    }
+   
 
     public class CloningServiceTest
     {

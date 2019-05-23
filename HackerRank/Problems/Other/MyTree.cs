@@ -12,7 +12,7 @@ namespace HackerRank.Problems.Other
         {
             MyTree tree = new MyTree();
             //tree.AddRange(new int[] { 5, 6, 4, 7, 3, 8, 2 });
-            tree.AddRange(new int[] { 5,3, 7, 4, 2, 6, 8 });
+            tree.AddRange(new int[] { 5, 3, 7, 4, 2, 6, 8, 1, 9 });
 
             //tree.AddRange(new int[] { 4,7,8,3,6,5,2 });
 
@@ -22,7 +22,7 @@ namespace HackerRank.Problems.Other
             //tree.PostOrderTeraversal();
             tree.LevelOrderTraversal();
             Console.WriteLine();
-
+            tree.IsTreeMirrored();
             //tree.PreOrderTeraversal();
 
             Console.WriteLine(tree.CalcTreeHeight());
@@ -106,37 +106,111 @@ namespace HackerRank.Problems.Other
         public void LevelOrderTraversal()
         {
             Stack<MyTree> nodes = new Stack<MyTree>();
-            Queue<MyTree> nodes1 = new Queue<MyTree>();
+            Stack<MyTree> nodes1 = new Stack<MyTree>();
 
             nodes.Push(this);
-
-            bool traversalFinished = false;
-            bool orderLeftToRight = true;
-            while (!traversalFinished)
+            bool popFromFirst = true;
+            while (nodes.Count > 0 || nodes1.Count > 0)
             {
-                while (nodes.Count > 0)
+                if (nodes.Count > 0 && popFromFirst)
                 {
-                    MyTree myTree = nodes.Pop();
+                    var node = nodes.Pop();
+                    Console.Write(node.Value + " ");
 
-                    Console.Write(myTree.Value.ToString() + " ");
+                    if (node.Right != null) nodes1.Push(node.Right);
+                    if (node.Left != null) nodes1.Push(node.Left);
 
+                    if (popFromFirst != nodes.Count > 0)
+                    {
+                        Console.WriteLine();
+                        popFromFirst = nodes.Count > 0;
+                    }
+                }
+                else if (nodes1.Count > 0 && !popFromFirst)
+                {
+                    var node = nodes1.Pop();
+                    Console.Write(node.Value + " ");
 
-                    if (myTree.Left != null) nodes1.Enqueue(myTree.Left);
-                    if (myTree.Right != null) nodes1.Enqueue(myTree.Right);
+                    if (node.Left != null) nodes.Push(node.Left);
+                    if (node.Right != null) nodes.Push(node.Right);
 
+                    if (popFromFirst != !(nodes1.Count > 0))
+                    {
+                        Console.WriteLine();
+                        popFromFirst = !(nodes1.Count > 0);
+                    }
                 }
 
-                while (nodes1.Count > 0)
-                {
-                    nodes.Push(nodes1.Dequeue());
-                }
-              
-                Console.WriteLine(" ");
-               // orderLeftToRight = !orderLeftToRight;
-                nodes1.Clear();
-                if (nodes.Count == 0) traversalFinished = true;
             }
+        }
 
+        public bool IsTreeMirrored()
+        {
+            Queue<MyTree> levelNOdes = new Queue<MyTree>();
+            Queue<MyTree> levelNOdes1 = new Queue<MyTree>();
+
+            bool userFirstQueue = true;
+            List<int> values = new List<int>();
+
+            levelNOdes.Enqueue(this);
+
+            while (levelNOdes.Count > 0 || levelNOdes1.Count > 0)
+            {
+                if (userFirstQueue && levelNOdes.Count > 0)
+                {
+                    var node = levelNOdes.Dequeue();
+                    values.Add(node.Value);
+
+                    if (node.Left != null) levelNOdes1.Enqueue(node.Left);
+                    if (node.Right != null) levelNOdes1.Enqueue(node.Right);
+
+                    if (userFirstQueue != (levelNOdes.Count > 0))
+                    {
+                        userFirstQueue = false;
+                        if (IsListMirrored(values))
+                        {
+                            Console.WriteLine("NO!");
+                            return false;
+                        }
+                        values.Clear();
+                    }
+                }
+                else if (!userFirstQueue && levelNOdes1.Count > 0)
+                {
+                    var node = levelNOdes1.Dequeue();
+                    values.Add(node.Value);
+
+                    if (node.Left != null) levelNOdes.Enqueue(node.Left);
+                    if (node.Right != null) levelNOdes.Enqueue(node.Right);
+
+                    if (userFirstQueue != !(levelNOdes1.Count > 0))
+                    {
+                        userFirstQueue = true;
+                        if (IsListMirrored(values))
+                        {
+                            Console.WriteLine("NO!");
+                            return false;
+                        }
+                        values.Clear();
+                    }
+                }
+            }
+            Console.WriteLine("YES!");
+
+            return true;
+        }
+
+        private bool IsListMirrored(List<int> list)
+        {
+            int n = list.Count - 1;
+            for (int i = 0; i <= n / 2; i++)
+            {
+                if (list[i] != list[n - i])
+                {
+                    return false;
+                }
+            }
+            return true;
         }
         public int CalcTreeHeight()
         {
