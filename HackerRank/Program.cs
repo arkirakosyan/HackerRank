@@ -25,7 +25,7 @@ class Solution
 {
     static void Main(string[] args)
     {
-        new MyRegEx().MainRun();
+        new ThreeSum().MainRun();
         Console.ReadKey();
     }
 }

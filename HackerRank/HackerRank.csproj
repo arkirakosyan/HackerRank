@@ -65,11 +65,15 @@
     <Compile Include="Problems\GeekForGeeks\WordBreak.cs" />
     <Compile Include="Problems\LeetCode\AddTwoNumbers.cs" />
     <Compile Include="Problems\Arrays\MergeSortedArrays.cs" />
+    <Compile Include="Problems\LeetCode\ContainerWithMostWater.cs" />
     <Compile Include="Problems\LeetCode\FindInRange.cs" />
+    <Compile Include="Problems\LeetCode\LongestCommonPrefix.cs" />
+    <Compile Include="Problems\LeetCode\RomanNumbers.cs" />
     <Compile Include="Problems\LeetCode\MyRegEx.cs" />
     <Compile Include="Problems\LeetCode\RemoveInvalidParentheses.cs" />
     <Compile Include="Problems\LeetCode\ReverseInteger.cs" />
     <Compile Include="Problems\LeetCode\StringToInteger.cs" />
+    <Compile Include="Problems\LeetCode\ThreeSum.cs" />
     <Compile Include="Problems\LeetCode\ZigZagConvertion.cs" />
     <Compile Include="Problems\Medium\ACMICPCTeam.cs" />
     <Compile Include="Problems\Medium\BiggerIsGreater.cs" />
