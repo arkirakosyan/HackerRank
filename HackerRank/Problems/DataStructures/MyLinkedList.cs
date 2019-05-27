@@ -4,47 +4,47 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HackerRank.Problems.Other
+namespace HackerRank.Problems.DataStructures
 {
     public class SinglyLinkedList : _ProblemBase
     {
-        public SinglyLinkedListNode head;
+        public ListNode head;
 
         public override void MainRun()
         {
-            SinglyLinkedList llist = new SinglyLinkedList();
+            ListNode llist = new ListNode();
 
             int llistCount = Convert.ToInt32(Console.ReadLine());
 
             for (int i = 0; i < llistCount; i++)
             {
                 int llistItem = Convert.ToInt32(Console.ReadLine());
-                SinglyLinkedListNode llist_head = insertNodeAtTail(llist.head, llistItem);
-                llist.head = llist_head;
+                ListNode llist_head = insertNodeAtTail(llist.next, llistItem);
+                llist.next = llist_head;
 
             }
             int data = Convert.ToInt32(Console.ReadLine());
 
             int position = Convert.ToInt32(Console.ReadLine());
 
-            SinglyLinkedListNode a = insertNodeAtPosition(llist.head, data, position);
+            ListNode a = insertNodeAtPosition(llist.next, data, position);
 
         }
 
-        public SinglyLinkedListNode insertNodeAtTail(SinglyLinkedListNode head, int data)
+        public ListNode insertNodeAtTail(ListNode head, int data)
         {
             //return head;
-            if (head == null) return new SinglyLinkedListNode(data);
+            if (head == null) return new ListNode(data);
             if (head.next == null)
             {
-                head.next = new SinglyLinkedListNode(data);
+                head.next = new ListNode(data);
                 return head;
             }
 
             insertNodeAtTail(head.next, data);
             return head;
         }
-        public SinglyLinkedListNode insertNodeAtPosition(SinglyLinkedListNode head, int data, int position)
+        public ListNode insertNodeAtPosition(ListNode head, int data, int position)
         {
             var temp = head;
             int currentPostion = 0;
@@ -54,22 +54,10 @@ namespace HackerRank.Problems.Other
                 temp = temp.next;
             }
 
-            var newNode = new SinglyLinkedListNode(data);
+            var newNode = new ListNode(data);
             newNode.next = temp.next;
             temp.next = newNode;
             return head;
         }
-
-        public class SinglyLinkedListNode
-        {
-            public int data;
-            public SinglyLinkedListNode next;
-
-            public SinglyLinkedListNode(int data)
-            {
-                this.data = data;
-            }
-        }
-
     }
 }
