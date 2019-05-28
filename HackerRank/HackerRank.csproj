@@ -50,6 +50,7 @@
     <Compile Include="Problems\Arrays\QuickSort.cs" />
     <Compile Include="Problems\Bitwise\AddNumbers.cs" />
     <Compile Include="Problems\Codility\LongestString.cs" />
+    <Compile Include="Problems\DataStructures\LinkedListNode.cs" />
     <Compile Include="Problems\Difficult\ArrayManipulations.cs" />
     <Compile Include="Problems\Difficult\MatrixLayerRotation.cs" />
     <Compile Include="Problems\DynamicProgramming\AllSubsets.cs" />
@@ -67,6 +68,8 @@
     <Compile Include="Problems\Arrays\MergeSortedArrays.cs" />
     <Compile Include="Problems\LeetCode\ContainerWithMostWater.cs" />
     <Compile Include="Problems\LeetCode\FindInRange.cs" />
+    <Compile Include="Problems\LeetCode\LetterCombinationsOfPhoneNumber.cs" />
+    <Compile Include="Problems\LeetCode\LinkedListProblems.cs" />
     <Compile Include="Problems\LeetCode\LongestCommonPrefix.cs" />
     <Compile Include="Problems\LeetCode\RomanNumbers.cs" />
     <Compile Include="Problems\LeetCode\MyRegEx.cs" />
@@ -74,6 +77,7 @@
     <Compile Include="Problems\LeetCode\ReverseInteger.cs" />
     <Compile Include="Problems\LeetCode\StringToInteger.cs" />
     <Compile Include="Problems\LeetCode\ThreeSum.cs" />
+    <Compile Include="Problems\LeetCode\ValidParentheses.cs" />
     <Compile Include="Problems\LeetCode\ZigZagConvertion.cs" />
     <Compile Include="Problems\Medium\ACMICPCTeam.cs" />
     <Compile Include="Problems\Medium\BiggerIsGreater.cs" />
@@ -88,12 +92,12 @@
     <Compile Include="Problems\Other\CloningServiceTest.cs" />
     <Compile Include="Problems\Other\CustomMultiplication.cs" />
     <Compile Include="Problems\Other\MinLetterChange.cs" />
-    <Compile Include="Problems\Other\MyBalancedTree.cs" />
-    <Compile Include="Problems\Other\MyGraph.cs" />
-    <Compile Include="Problems\Other\MyHashTable.cs" />
-    <Compile Include="Problems\Other\MyHeap.cs" />
-    <Compile Include="Problems\Other\MyLinkedList.cs" />
-    <Compile Include="Problems\Other\MyTree.cs" />
+    <Compile Include="Problems\DataStructures\MyBalancedTree.cs" />
+    <Compile Include="Problems\DataStructures\MyGraph.cs" />
+    <Compile Include="Problems\DataStructures\MyHashTable.cs" />
+    <Compile Include="Problems\DataStructures\MyHeap.cs" />
+    <Compile Include="Problems\DataStructures\MyLinkedList.cs" />
+    <Compile Include="Problems\DataStructures\MyTree.cs" />
     <Compile Include="Problems\Other\Scopes.cs" />
     <Compile Include="Problems\Other\StepsCount.cs" />
     <Compile Include="Problems\Other\StringSearch.cs" />

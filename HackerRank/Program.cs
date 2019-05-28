@@ -25,7 +25,7 @@ class Solution
 {
     static void Main(string[] args)
     {
-        new ThreeSum().MainRun();
+        new ValidParentheses().MainRun();
         Console.ReadKey();
     }
 }
