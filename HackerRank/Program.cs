@@ -25,7 +25,7 @@ class Solution
 {
     static void Main(string[] args)
     {
-        new ValidParentheses().MainRun();
+        new LinkedListProblems().MainRun();
         Console.ReadKey();
     }
 }
