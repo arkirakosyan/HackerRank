@@ -25,7 +25,7 @@ class Solution
 {
     static void Main(string[] args)
     {
-        new LinkedListProblems().MainRun();
+        new StringProblems().MainRun();
         Console.ReadKey();
     }
 }

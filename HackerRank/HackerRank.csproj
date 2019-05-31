@@ -66,7 +66,9 @@
     <Compile Include="Problems\GeekForGeeks\WordBreak.cs" />
     <Compile Include="Problems\LeetCode\AddTwoNumbers.cs" />
     <Compile Include="Problems\Arrays\MergeSortedArrays.cs" />
+    <Compile Include="Problems\LeetCode\ArrayProblems.cs" />
     <Compile Include="Problems\LeetCode\ContainerWithMostWater.cs" />
+    <Compile Include="Problems\LeetCode\DivideTwoIntegers.cs" />
     <Compile Include="Problems\LeetCode\FindInRange.cs" />
     <Compile Include="Problems\LeetCode\LetterCombinationsOfPhoneNumber.cs" />
     <Compile Include="Problems\LeetCode\LinkedListProblems.cs" />
@@ -75,6 +77,7 @@
     <Compile Include="Problems\LeetCode\MyRegEx.cs" />
     <Compile Include="Problems\LeetCode\RemoveInvalidParentheses.cs" />
     <Compile Include="Problems\LeetCode\ReverseInteger.cs" />
+    <Compile Include="Problems\LeetCode\StringProblems.cs" />
     <Compile Include="Problems\LeetCode\StringToInteger.cs" />
     <Compile Include="Problems\LeetCode\ThreeSum.cs" />
     <Compile Include="Problems\LeetCode\ParenthesesProblems.cs" />

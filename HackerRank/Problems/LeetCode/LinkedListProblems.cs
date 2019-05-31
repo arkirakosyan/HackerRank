@@ -151,7 +151,8 @@ namespace HackerRank.Problems.LeetCode
 
         public ListNode ReverseKGroup(ListNode head, int k)
         {
-            var newHead = ReverseKGroupRecursive(null, head, out ListNode knthNode, k);
+            ListNode knthNode;
+            var newHead = ReverseKGroupRecursive(null, head, out knthNode, k);
 
             var tempHead = newHead;
 
