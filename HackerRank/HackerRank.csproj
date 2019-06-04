@@ -81,6 +81,7 @@
     <Compile Include="Problems\LeetCode\StringToInteger.cs" />
     <Compile Include="Problems\LeetCode\ThreeSum.cs" />
     <Compile Include="Problems\LeetCode\ParenthesesProblems.cs" />
+    <Compile Include="Problems\LeetCode\SudokuProblems.cs" />
     <Compile Include="Problems\LeetCode\ZigZagConvertion.cs" />
     <Compile Include="Problems\Medium\ACMICPCTeam.cs" />
     <Compile Include="Problems\Medium\BiggerIsGreater.cs" />

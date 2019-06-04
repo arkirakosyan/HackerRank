@@ -25,7 +25,7 @@ class Solution
 {
     static void Main(string[] args)
     {
-        new StringProblems().MainRun();
+        new SudokuProblems().MainRun();
         Console.ReadKey();
     }
 }

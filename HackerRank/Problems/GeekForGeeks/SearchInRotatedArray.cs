@@ -20,12 +20,55 @@ namespace HackerRank.Problems.GeekForGeeks
 
             //    Console.WriteLine(GetNumberIndex(arr, number));
             //}
-            int x = GetNumberIndex(new int[] { 5, 6, 7, 8, 9, 10, 1, 2, 3 }, 4);
+            int[] x = SearchRange(new int[] { 1, 3, 5, 6 },2);
 
             Print(x);
         }
 
-        private int GetNumberIndex(int[] arr, int number)
+        public int[] SearchRange(int[] nums, int target)
+        {
+            int pivot = FindAny(nums, 0, nums.Length - 1, target);
+            if(pivot == -1)
+            {
+                return new int[] { -1, -1 };
+            }
+
+            int left = pivot;
+            int right = pivot;
+
+            while (left - 1 >= 0 && nums[left - 1] == nums[pivot])
+            {
+                left--;
+            }
+
+            while (right + 1 < nums.Length && nums[right + 1] == nums[pivot])
+            {
+                right++;
+            }
+
+            return new int[] { left, right };
+        }
+
+        public int FindAny(int[] nums, int start, int end, int target)
+        {
+            if (start > end) return -1;
+
+            int pivot = start + (end - start) / 2;
+
+            if (nums[pivot] == target)
+            {
+                return pivot;
+            }
+
+            if (nums[pivot] > target)
+            {
+                return FindAny(nums, start, pivot - 1, target);
+            }
+            return FindAny(nums, pivot + 1, end, target);
+        }
+
+
+        public int GetNumberIndex(int[] arr, int number)
         {
             int rotationIndex = FindRotationIndex(arr, 0, arr.Length - 1);
             int rotationCount = (rotationIndex > 0) ? arr.Length - rotationIndex : 0;
@@ -56,31 +99,20 @@ namespace HackerRank.Problems.GeekForGeeks
         }
         private int FindRotationIndex(int[] arr, int start, int end)
         {
-            if (start > end) return -1;
+            if (arr.Length == 1 || start > end) return -1;
 
             int checkIndex = start + (end - start) / 2;
-            if (checkIndex > 0)
+            if (checkIndex > 0 && arr[checkIndex - 1] > arr[checkIndex])
             {
-                if (arr[checkIndex - 1] > arr[checkIndex])
-                {
-                    return checkIndex;
-                }
-            }
-            else
-            {
-                if (arr[checkIndex + 1] < arr[checkIndex])
-                {
-                    return checkIndex;
-                }
+                return checkIndex;
             }
 
-            int newLeftEnd = start + (end - start) / 2 - 1;
-            if (newLeftEnd > 0 && arr[newLeftEnd] < arr[0])
+            if (checkIndex - 1 > 0 && arr[0] > arr[checkIndex - 1])
             {
-                return FindRotationIndex(arr, start, newLeftEnd);
+                return FindRotationIndex(arr, start, checkIndex - 1);
             }
 
-            return FindRotationIndex(arr, start + (end - start) / 2 + 1, end);
+            return FindRotationIndex(arr, checkIndex + 1, end);
 
         }
     }

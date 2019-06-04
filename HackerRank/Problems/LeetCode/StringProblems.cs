@@ -12,8 +12,8 @@ namespace HackerRank.Problems.LeetCode
         {
             //Print(StrStr("hell", "ll"));
 
-            var v = FindSubstring("barfoothefoobarman", new string[] { "foo", "bar" });
-            //FindSubstring("wordgoodgoodgoodbestword", new string[] { "word", "good", "best", "word" });
+            //var v = FindSubstring("abababab", new string[] { "a", "b", "a" });
+            var v = FindSubstring("wordgoodgoodgoodbestword", new string[] { "word", "good", "best", "word" });
             //var t = FindSubstring("abababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababab", new string[] { "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba", "ab", "ba" });
         }
 
@@ -50,19 +50,67 @@ namespace HackerRank.Problems.LeetCode
             }
             return -1;
         }
-        private string[] GetRemainingWords(string[] words, int k)
-        {
-            string[] newS = new string[words.Length - 1];
-            int j = 0;
-            for (int i = 0; i < words.Length; i++)
-            {
-                if (i == k) continue;
-                newS[j++] = words[i];
-            }
-            return newS;
-        }
 
         public IList<int> FindSubstring(string s, string[] words)
+        {
+            IList<int> results = new List<int>();
+            if (words.Length == 0) return results;
+            int oneWordLength = words[0].Length;
+            int wordsCount = words.Length;
+            int substringLength = wordsCount * oneWordLength;
+
+
+            Dictionary<string, int> dict = new Dictionary<string, int>(wordsCount);
+            foreach (var word in words)
+            {
+                if (dict.ContainsKey(word))
+                {
+                    dict[word]++;
+                }
+                else
+                {
+                    dict[word] = 1;
+                }
+            }
+
+            for (int i = 0; i < s.Length - substringLength + 1; i++)
+            {
+                string firstWord = s.Substring(i, oneWordLength);
+                Dictionary<string, int> dict1 = new Dictionary<string, int>();
+
+                if (dict.ContainsKey(firstWord))
+                {
+                    dict1.Add(firstWord, dict[firstWord]-1);
+
+                    int j = 1;
+                    while (j < words.Length)
+                    {
+                        var nextWord = s.Substring(i + j * oneWordLength, oneWordLength);
+                        if (dict.ContainsKey(nextWord) && (!dict1.ContainsKey(nextWord) || dict1[nextWord] > 0))
+                        {
+                            if (!dict1.ContainsKey(nextWord))
+                                dict1.Add(nextWord, dict[nextWord] - 1);
+                            else
+                                dict1[nextWord]--;
+                            j++;
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }
+                    if (j == words.Length)
+                    {
+                        results.Add(i);
+                    }
+                }
+            }
+
+            return results;
+        }
+
+
+        public IList<int> FindSubstring1(string s, string[] words)
         {
             HashSet<string> hash = new HashSet<string>();
             IList<int> results = new List<int>();
@@ -70,21 +118,19 @@ namespace HackerRank.Problems.LeetCode
             int oneWordLength = words[0].Length;
             int substringLength = words.Length * oneWordLength;
 
+
             for (int i = 0; i < words.Length; i++)
             {
                 if (!hash.Contains(words[i]))
                 {
                     hash.Add(words[i]);
-
                     int firstIndex = 0;
+
                     while (firstIndex + substringLength <= s.Length)
                     {
                         if (StartsWith(s, words[i], firstIndex))
                         {
-                            HashSet<int> usedWords = new HashSet<int>();
-
-                            usedWords.Add(i);
-                            if (CheckSubstring(s, words, firstIndex + oneWordLength, usedWords, oneWordLength))
+                            if (CheckSubstring(s, GetRemainingWords(words, i), firstIndex + oneWordLength))
                             {
                                 results.Add(firstIndex);
                             }
@@ -95,19 +141,17 @@ namespace HackerRank.Problems.LeetCode
             }
             return results;
         }
-        private bool CheckSubstring(string s, string[] words, int startIndex, HashSet<int> usedWords, int oneWordLength)
+
+
+        private bool CheckSubstring(string s, string[] words, int startIndex)
         {
-            if (words.Length == usedWords.Count) return true;
+            if (words.Length == 0) return true;
 
             for (int i = 0; i < words.Length; i++)
             {
-                if (!usedWords.Contains(i) && StartsWith(s, words[i], startIndex))
+                if (StartsWith(s, words[i], startIndex) && CheckSubstring(s, GetRemainingWords(words, i), startIndex + words[i].Length))
                 {
-                    usedWords.Add(i);
-                    if (CheckSubstring(s, words, startIndex + oneWordLength, usedWords, oneWordLength))
-                    {
-                        return true;
-                    }
+                    return true;
                 }
             }
             return false;
@@ -121,6 +165,18 @@ namespace HackerRank.Problems.LeetCode
             }
             return j == p.Length;
         }
-      
+        private string[] GetRemainingWords(string[] words, int k)
+        {
+            string[] newS = new string[words.Length - 1];
+            int j = 0;
+            for (int i = 0; i < words.Length; i++)
+            {
+                if (i == k) continue;
+                newS[j++] = words[i];
+            }
+            return newS;
+        }
+
+
     }
 }
