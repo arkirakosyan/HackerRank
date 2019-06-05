@@ -14,6 +14,17 @@ namespace HackerRank.Problems.LeetCode
             NextPermutation(new int[] { 5, 4, 7, 5, 3, 2 });
         }
 
+        //public int FirstMissingPositive(int[] nums)
+        //{
+        //    int index = nums[0] + 1;
+
+        //    for (int i = 1; i < nums.Length; i++)
+        //    {
+
+        //       if( nums[index] == 
+        //    }
+        //}
+
         public int RemoveDuplicates(int[] nums)
         {
             if (nums.Length < 2) return nums.Length;

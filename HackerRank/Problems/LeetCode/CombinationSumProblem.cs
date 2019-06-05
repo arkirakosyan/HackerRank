@@ -10,30 +10,87 @@ namespace HackerRank.Problems.LeetCode
     {
         public override void MainRun()
         {
-            throw new NotImplementedException();
+            var t = CombinationSum2(new int[] { 10, 1, 2, 7, 6, 1, 5 }, 8);
+        }
+        public IList<IList<int>> CombinationSum2(int[] candidates, int target)
+        {
+            Dictionary<int, int> uniqueCandidates = new Dictionary<int, int>();
+            foreach (var candidate in candidates)
+            {
+                if (!uniqueCandidates.ContainsKey(candidate))
+                {
+                    uniqueCandidates.Add(candidate, 1);
+                }
+                else
+                {
+                    uniqueCandidates[candidate]++;
+                }
+            }
+
+            return CombinationSumRecursive2(uniqueCandidates, uniqueCandidates.Keys.ToArray(), 0, target);
+        }
+        private IList<IList<int>> CombinationSumRecursive2(Dictionary<int, int> uniqueCandidates, int[] candidates, int start, int target)
+        {
+            List<IList<int>> results = new List<IList<int>>();
+            if (target == 0)
+            {
+                results.Add(new List<int>());
+                return results;
+            }
+            if (start == candidates.Length) return results;
+
+            int candMaxCount = Math.Min( target / candidates[start], uniqueCandidates[candidates[start]]);
+
+            while (candMaxCount > 0)
+            {
+                var prevResults = CombinationSumRecursive2(uniqueCandidates, candidates, start + 1, target - candMaxCount * candidates[start]);
+                foreach (var list in prevResults)
+                {
+                    for (int i = 0; i < candMaxCount; i++)
+                    {
+                        list.Add(candidates[start]);
+                    }
+                }
+                results.AddRange(prevResults);
+                candMaxCount--;
+            }
+
+            results.AddRange(CombinationSumRecursive2(uniqueCandidates, candidates, start + 1, target));
+            return results;
         }
 
+        public IList<IList<int>> CombinationSum(int[] candidates, int target)
+        {
+            return CombinationSumRecursive(candidates, 0, target);
+        }
+        private IList<IList<int>> CombinationSumRecursive(int[] candidates, int start, int target)
+        {
+            List<IList<int>> results = new List<IList<int>>();
+            if (target == 0)
+            {
+                results.Add(new List<int>());
+                return results;
+            }
+            if (start == candidates.Length) return results;
 
-        //public List<int> CombinationSum(int[] candidates, int target, int originalTarget, IList<IList<int>> results)
-        //{
-        //    //List<int> choosed = new List<int>();
+            int candMaxCount = target / candidates[start];
 
-        //    for (int i = 0; i < candidates.Length; i++)
-        //    {
-        //        if (candidates[i] == target)
-        //        {
+            while (candMaxCount > 0)
+            {
+                var prevResults = CombinationSumRecursive(candidates, start + 1, target - candMaxCount * candidates[start]);
+                foreach (var list in prevResults)
+                {
+                    for (int i = 0; i < candMaxCount; i++)
+                    {
+                        list.Add(candidates[start]);
+                    }
+                }
+                results.AddRange(prevResults);
+                candMaxCount--;
+            }
 
-        //            foreach (var list in results)
-        //            {
-        //                list.ad
-        //            }
-        //        }
-        //        else if (candidates[i] < target)
-        //        {
-        //            choosed.Add(candidates[i]);
-        //            CombinationSum(candidates, target - candidates[i], choosed, results);
-        //        }
-        //    }
-        //}
+            results.AddRange(CombinationSumRecursive(candidates, start + 1, target));
+            return results;
+        }
     }
 }
