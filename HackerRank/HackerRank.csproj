@@ -67,7 +67,9 @@
     <Compile Include="Problems\LeetCode\AddTwoNumbers.cs" />
     <Compile Include="Problems\Arrays\MergeSortedArrays.cs" />
     <Compile Include="Problems\LeetCode\ArrayProblems.cs" />
+    <Compile Include="Problems\LeetCode\CombinationSumProblem.cs" />
     <Compile Include="Problems\LeetCode\ContainerWithMostWater.cs" />
+    <Compile Include="Problems\LeetCode\CountAndSay.cs" />
     <Compile Include="Problems\LeetCode\DivideTwoIntegers.cs" />
     <Compile Include="Problems\LeetCode\FindInRange.cs" />
     <Compile Include="Problems\LeetCode\LetterCombinationsOfPhoneNumber.cs" />

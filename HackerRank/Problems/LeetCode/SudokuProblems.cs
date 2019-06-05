@@ -13,25 +13,25 @@ namespace HackerRank.Problems.LeetCode
             throw new NotImplementedException();
         }
 
-        public bool IsValidSudoku(char[][] board)
-        {
+        //public bool IsValidSudoku(char[][] board)
+        //{
 
-        }
+        //}
 
-        private bool IsValidBox(char[][] board, int i, int j)
-        {
-            int[] a = new int[9];
-            for (int k = i - 1; k <= i + 1; k++)
-            {
-                for (int l = j - 1; l <= j + 1; j++)
-                {
-                    if (board[k][l] != '.')
-                    {
-                        if('1' - a[board[k][l]])
-                    }
-                }
-            }
-        }
+        //private bool IsValidBox(char[][] board, int i, int j)
+        //{
+        //    int[] a = new int[9];
+        //    for (int k = i - 1; k <= i + 1; k++)
+        //    {
+        //        for (int l = j - 1; l <= j + 1; j++)
+        //        {
+        //            if (board[k][l] != '.')
+        //            {
+        //                if('1' - a[board[k][l]])
+        //            }
+        //        }
+        //    }
+        //}
 
     }
 }

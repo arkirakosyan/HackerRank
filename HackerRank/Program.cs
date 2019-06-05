@@ -25,7 +25,7 @@ class Solution
 {
     static void Main(string[] args)
     {
-        new SudokuProblems().MainRun();
+        new CombinationSumProblem().MainRun();
         Console.ReadKey();
     }
 }
