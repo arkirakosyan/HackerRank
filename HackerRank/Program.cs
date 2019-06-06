@@ -25,7 +25,7 @@ class Solution
 {
     static void Main(string[] args)
     {
-        new CombinationSumProblem().MainRun();
+        new EscapeALargeMaze().MainRun();
         Console.ReadKey();
     }
 }

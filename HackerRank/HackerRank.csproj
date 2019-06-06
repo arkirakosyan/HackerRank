@@ -55,6 +55,7 @@
     <Compile Include="Problems\Difficult\MatrixLayerRotation.cs" />
     <Compile Include="Problems\DynamicProgramming\AllSubsets.cs" />
     <Compile Include="Problems\DynamicProgramming\CoinChange.cs" />
+    <Compile Include="Problems\DynamicProgramming\EscapeALargeMaze.cs" />
     <Compile Include="Problems\DynamicProgramming\Knapsack.cs" />
     <Compile Include="Problems\DynamicProgramming\SubsetSum.cs" />
     <Compile Include="Problems\GeekForGeeks\AllPermutions.cs" />
