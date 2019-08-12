@@ -9,9 +9,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>HackerRank</RootNamespace>
     <AssemblyName>HackerRank</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -73,9 +74,12 @@
     <Compile Include="Problems\LeetCode\CountAndSay.cs" />
     <Compile Include="Problems\LeetCode\DivideTwoIntegers.cs" />
     <Compile Include="Problems\LeetCode\FindInRange.cs" />
+    <Compile Include="Problems\LeetCode\FirstMissingPositiveProblem.cs" />
+    <Compile Include="Problems\LeetCode\GroupAnagrams.cs" />
     <Compile Include="Problems\LeetCode\LetterCombinationsOfPhoneNumber.cs" />
     <Compile Include="Problems\LeetCode\LinkedListProblems.cs" />
     <Compile Include="Problems\LeetCode\LongestCommonPrefix.cs" />
+    <Compile Include="Problems\LeetCode\PermutationProblems.cs" />
     <Compile Include="Problems\LeetCode\RomanNumbers.cs" />
     <Compile Include="Problems\LeetCode\MyRegEx.cs" />
     <Compile Include="Problems\LeetCode\RemoveInvalidParentheses.cs" />
